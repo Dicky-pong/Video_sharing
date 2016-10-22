@@ -1,0 +1,22 @@
+ .warn-info{
+     font-size: 16px;
+     line-height: 28px;
+ }
+ .warn-tip{
+     color: #999;
+     margin-top: 30px;
+ }
+ .warn-tip a{
+     color: #08c !important;
+ }
+ 
+ .land-banner{
+ background: #000;
+ text-align: center;
+  }
+  
+ .land-banner img{
+    width: 948px;
+    height: 420px;
+    /* margin: 0 auto; */
+ }

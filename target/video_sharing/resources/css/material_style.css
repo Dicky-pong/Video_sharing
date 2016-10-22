@@ -1,0 +1,339 @@
+/*
+ *素材管理样式*
+ */
+
+.vm_box {
+	display: inline-block;
+	height: 100%;
+	vertical-align: middle
+}
+.goods_desc {
+	width: 74%;
+	padding: 15px;
+	margin-top: 10px;
+	border: 1px solid #e7e7eb;
+	min-height: 400px
+}
+.goods_desc .create_access a {
+	display: none;
+	width: 65px;
+	margin: 10px 20px 0;
+	line-height: 30px;
+	vertical-align: middle
+}
+.goods_desc .create_access a:hover .icon_add_pic {
+	background: url("../../resources/images/perfect_information/shop_create_z218878.png") 0 -48px no-repeat
+}
+.goods_desc .create_access a:hover .icon_add_txt {
+	background: url("../../resources/images/perfect_information/shop_create_z218878.png") 0 -96px no-repeat
+}
+.goods_desc .create_access strong {
+	display: block;
+	font-weight: normal;
+	margin-top: -5px
+}
+.goods_desc .create_access:hover a {
+	display: inline-block;
+*display:inline;
+*zoom:1
+}
+.goods_desc .icon_add_pic {
+	background: url("../../resources/images/perfect_information/shop_create_z218878.png") 0 -144px no-repeat;
+	width: 38px;
+	height: 38px;
+	vertical-align: middle;
+	display: inline-block
+}
+.goods_desc .icon_add_txt {
+	background: url("../../resources/images/perfect_information/shop_create_z218878.png") 0 -192px no-repeat;
+	width: 38px;
+	height: 38px;
+	vertical-align: middle;
+	display: inline-block
+}
+.goods_desc .edit_wrp {
+	position: relative;
+	margin: 5px 0;
+	line-height: 24px;
+*zoom:1
+}
+.goods_desc .edit_wrp p {
+	padding: 5px 0;
+	text-align:left;
+	 color:#5c5c5c; font-size:14px;
+}
+.goods_desc .edit_wrp .edit_mask {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: rgba(229,229,229,0.85)!important;
+filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='#d9e5e5e5', endcolorstr = '#d9e5e5e5');
+	text-align: center;
+	display: none;
+	top: 0;
+	left: 0
+}
+.goods_desc .edit_wrp .edit_mask a {
+	margin: 5px 15px
+}
+.goods_desc .edit_wrp .edit_mask .down_gray {
+	background: url("../../resources/images/perfect_information/shop_create_z218878.png") 0 -240px no-repeat;
+	width: 18px;
+	height: 18px;
+	vertical-align: middle;
+	display: inline-block
+}
+.goods_desc .edit_wrp .edit_mask .down_gray:hover {
+	background: url("../../resources/images/perfect_information/shop_create_z218878.png") 0 -268px no-repeat
+}
+.goods_desc .edit_wrp .edit_mask .up_gray {
+	background: url("../../resources/images/perfect_information/shop_create_z218878.png") 0 -296px no-repeat;
+	width: 18px;
+	height: 18px;
+	vertical-align: middle;
+	display: inline-block
+}
+.goods_desc .edit_wrp .edit_mask .up_gray:hover {
+	background: url("../../resources/images/perfect_information/shop_create_z218878.png") 0 -324px no-repeat
+}
+.goods_desc .edit_wrp:hover .edit_mask {
+	display: block
+}
+.goods_desc .edit_wrp .vm_box {
+	width: 0;
+	height: 100%;
+	vertical-align: middle
+}
+.goods_desc .edit_wrp img {
+	width: 100%;
+	display: block
+}
+.goods_desc .goods_desc_content .edit_wrp:first-child .up_gray {
+	display: none
+}
+.goods_desc .goods_desc_content .edit_wrp:last-child .down_gray {
+	display: none
+}
+.icon36_common {
+	width: 36px;
+	height: 36px;
+	vertical-align: middle;
+	display: inline-block;
+	margin-top: 20px;
+}
+.icon36_common.add_gray {
+	background: url("../../resources/images/perfect_information/base_z2968da.png") 0 -2904px no-repeat
+}
+.create_access {
+	display: block;
+	border: 2px dotted #d9dadc;
+	height:80px;
+	line-height: 80px;
+	text-align: center;
+	margin-bottom: 20px
+}
+.create_access i {
+	cursor: pointer;
+	line-height: 300px;
+	overflow: hidden
+}
+.create_access a {
+	display: none;
+	vertical-align: middle;
+	margin-left: 10px;
+	margin-right: 10px;
+	color: #8d8d8d;
+	font-size: 14px;
+	line-height: normal
+}
+.create_access a strong {
+	display: block;
+	padding-top: 3px;
+	font-weight: 400;
+	font-style: normal
+}
+.create_access:hover {
+	border-color: #b3b3b3
+}
+.create_access:hover .add_gray {
+	display: none
+}
+.create_access:hover a {
+	display: inline-block
+}
+.create_access_square_wrp {
+	display: inline-block;
+	width: 100px;
+	height: 100px
+}
+.create_access_square_wrp .create_access_primary {
+	line-height: 96px
+}
+.create_access_primary {
+	display: block;
+	border: 2px dotted #d9dadc;
+	line-height: 60px;
+	font-size: 0;
+	text-align: center;
+	margin-bottom: 20px
+}
+.create_access_primary i {
+	cursor: pointer;
+	line-height: 300px;
+	overflow: hidden
+}
+.create_access_primary:hover {
+	border-color: #b3b3b3
+}
+.create_access_primary:hover .icon20_common {
+	background: url("../../resources/images/perfect_information/base_z2968da.png") 0 -2950px no-repeat
+}
+.create_access_primary:hover .icon35_common {
+	background: url("../../resources/images/perfect_information/base_z2968da.png") 0 -2980px no-repeat
+}
+.create_access_primary:hover .icon36_common {
+	background: url("../../resources/images/perfect_information/base_z2968da.png") 0 -3025px no-repeat
+}
+.create_access_primary:hover .icon42_common {
+	background: url("../../resources/images/perfect_information/base_z2968da.png") 0 -3071px no-repeat
+}
+.frm_tips{ text-align:left;color:#c4495b; font-size:14px; margin:20px 0 30px 0;}
+
+.icon18_common {
+	width: 18px;
+	height: 18px;
+	vertical-align: middle;
+	display: inline-block;
+	line-height: 100px;
+	overflow: hidden
+}
+.icon18_common {
+	width: 18px;
+	height: 18px;
+	vertical-align: middle;
+	display: inline-block;
+	line-height: 100px;
+	overflow: hidden
+}
+.icon18_common.woman_orange {
+	background: url("../../resources/images/perfect_information/base_z2968da.png") 0 -4522px no-repeat
+}
+.icon18_common.man_blue {
+	background: url("../../resources/images/perfect_information/base_z2968da.png") 0 -4550px no-repeat
+}
+.icon18_common.error {
+	background: url("../../resources/images/perfect_information/base_z2968da.png") 0 -4578px no-repeat
+}
+.icon18_common.add_blue {
+	background: url("../../resources/images/perfect_information/base_z2968da.png") 0 -4606px no-repeat
+}
+.selected .icon18_common.add_blue {
+	background: url("../../resources/images/perfect_information/base_z2968da.png") 0 -4634px no-repeat
+}
+.icon18_common.add_white {
+	background: url("../../resources/images/perfect_information/base_z2968da.png") 0 -4662px no-repeat
+}
+.icon18_common.del_blue {
+	background: url("../../resources/images/perfect_information/base_z2968da.png") 0 -4690px no-repeat
+}
+.icon18_common.del_blue:hover {
+	background: url("../../resources/images/perfect_information/base_z2968da.png") 0 -4718px no-repeat
+}
+.icon18_common.del_gray {
+	background: url("../../resources/images/perfect_information/base_z2968da.png") 0 -4746px no-repeat
+}
+a:hover .icon18_common.del_gray, .icon18_common.del_gray:hover {
+	background: url("../../resources/images/perfect_information/base_z2968da.png") 0 -4774px no-repeat
+}
+.icon18_common.link_gray {
+	background: url("../../resources/images/perfect_information/base_z2968da.png") 0 -4802px no-repeat
+}
+.icon18_common.link_gray:hover, .hover .icon18_common.link_gray, a:hover .icon18_common.link_gray {
+	background: url("../../resources/images/perfect_information/base_z2968da.png") 0 -4830px no-repeat
+}
+.icon18_common.download_blue {
+	background: url("../../resources/images/perfect_information/base_z2968da.png") 0 -4858px no-repeat
+}
+.icon18_common.download_blue:hover {
+	background: url("../../resources/images/perfect_information/base_z2968da.png") 0 -4886px no-repeat
+}
+.icon18_common.upload_gray {
+	background: url("../../resources/images/perfect_information/base_z2968da.png") 0 -4914px no-repeat
+}
+.icon18_common.upload_gray:hover {
+	background: url("../../resources/images/perfect_information/base_z2968da.png") 0 -4942px no-repeat
+}
+.icon18_common.download_simple_gray {
+	background: url("../../resources/images/perfect_information/base_z2968da.png") 0 -4970px no-repeat
+}
+.icon18_common.download_simple_gray:hover, a:hover .icon18_common.download_simple_gray {
+	background: url("../../resources/images/perfect_information/base_z2968da.png") 0 -4998px no-repeat
+}
+.icon18_common.download_gray {
+	background: url("../../resources/images/perfect_information/base_z2968da.png") 0 -5026px no-repeat
+}
+.icon18_common.download_gray:hover, a:hover .icon18_common.download_gray {
+	background: url("../../resources/images/perfect_information/base_z2968da.png") 0 -5054px no-repeat
+}
+.icon18_common.move_gray {
+	background: url("../../resources/images/perfect_information/base_z2968da.png") 0 -5082px no-repeat
+}
+.icon18_common.move_gray:hover, a:hover .icon18_common.move_gray {
+	background: url("../../resources/images/perfect_information/base_z2968da.png") 0 -5110px no-repeat
+}
+.icon18_common.reply_gray {
+	background: url("../../resources/images/perfect_information/base_z2968da.png") 0 -5138px no-repeat
+}
+.icon18_common.reply_gray:hover {
+	background: url("../../resources/images/perfect_information/base_z2968da.png") 0 -5166px no-repeat
+}
+.icon18_common.star_gray {
+	background: url("../../resources/images/perfect_information/base_z2968da.png") 0 -5194px no-repeat
+}
+.icon18_common.star_gray:hover {
+	background: url("../../resources/images/perfect_information/base_z2968da.png") 0 -5222px no-repeat
+}
+.icon18_common.save_gray {
+	background: url("../../resources/images/perfect_information/base_z2968da.png") 0 -5250px no-repeat
+}
+.icon18_common.save_gray:hover {
+	background: url("../../resources/images/perfect_information/base_z2968da.png") 0 -5278px no-repeat
+}
+.icon18_common.edit_blue {
+	background: url("../../resources/images/perfect_information/base_z2968da.png") 0 -5306px no-repeat
+}
+.icon18_common.edit_blue:hover {
+	background: url("../../resources/images/perfect_information/base_z2968da.png") 0 -5334px no-repeat
+}
+.selected .icon18_common.edit_blue {
+	background: url("../../resources/images/perfect_information/base_z2968da.png") 0 -5362px no-repeat
+}
+.icon18_common.zoomout_gray {
+	background: url("../../resources/images/perfect_information/base_z2968da.png") 0 -5390px no-repeat
+}
+.icon18_common.zoomout_gray:hover, a:hover .icon18_common.zoomout_gray {
+	background: url("../../resources/images/perfect_information/base_z2968da.png") 0 -5418px no-repeat
+}
+.icon18_common.edit_gray {
+	background: url("../../resources/images/perfect_information/base_z2968da.png") 0 -5446px no-repeat
+}
+.icon18_common.edit_gray:hover, a:hover .icon18_common.edit_gray {
+	background: url("../../resources/images/perfect_information/base_z2968da.png") 0 -5474px no-repeat
+}
+.icon18_common.star_orange {
+	background: url("../../resources/images/perfect_information/base_z2968da.png") 0 -5502px no-repeat
+}
+.icon18_common.save_blue {
+	background: url("../../resources/images/perfect_information/base_z2968da.png") 0 -5530px no-repeat
+}
+.icon18_common.save_blue:hover {
+	background: url("../../resources/images/perfect_information/base_z2968da.png") 0 -5558px no-repeat
+}
+.icon18_common.qrcode_gray {
+	background: url("../../resources/images/perfect_information/base_z2968da.png") 0 -5586px no-repeat
+}
+.icon18_common.qrcode_gray:hover, a:hover .icon18_common.qrcode_gray {
+	background: url("../../resources/images/perfect_information/base_z2968da.png") 0 -5614px no-repeat
+}
+.goods_desc_t_title{width: 80%;text-align: left; color:#5c5c5c; font-size:14px; margin:15px 0;}
+
