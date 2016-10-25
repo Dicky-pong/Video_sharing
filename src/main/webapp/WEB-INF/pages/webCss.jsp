@@ -13,7 +13,17 @@ var basePath = '${basePath}';
 </script>
 
 <!-- 系统框架Css引用1.3 -->
-<link rel="stylesheet" type="text/css" href="${path}/resources/css/public_reset.css" />
+<link rel="stylesheet" href="${path}/resources/css/zerogrid.css">
+<link rel="stylesheet" href="${path}/resources/css/style.css">
+<link rel="stylesheet" href="${path}/resources/css/menu.css">
+<!-- Owl Carousel Assets -->
+<link href="${path}/resources/css/owl.carousel.css" rel="stylesheet">
+<link href="${path}/resources/css/owl.theme.css" rel="stylesheet">
+<!-- Custom Fonts -->
+<link href="${path}/resources/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+<%-- <link rel="stylesheet" type="text/css" href="${path}/resources/css/public_reset.css" />
 <link rel="stylesheet" type="text/css" href="${path}/resources/css/system-release.css" />
 <link rel="stylesheet" type="text/css" href="${path}/resources/css/public_pop_layer.css" />
 <link rel="stylesheet" type="text/css" href="${path}/resources/css/system_announcemen.css">
@@ -36,3 +46,4 @@ var basePath = '${basePath}';
 <script type="text/javascript" src="${path}/resources/js/plugins/jTemplates/jquery-jtemplates.js"></script>
 
 <script type="text/javascript" src="${path}/resources/js/ajaxfileupload.js"></script>
+ --%>
