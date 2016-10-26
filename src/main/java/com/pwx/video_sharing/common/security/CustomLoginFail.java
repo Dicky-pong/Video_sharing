@@ -66,7 +66,7 @@ public class CustomLoginFail implements AuthenticationFailureHandler {
             }else{
                 setDefaultFailureUrl("/login?error");
             }*/
-            setDefaultFailureUrl("/login/loginPage.do");
+            setDefaultFailureUrl("/login/lgoin.do");
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

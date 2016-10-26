@@ -20,8 +20,8 @@ var basePath = '${basePath}';
 <link href="${path}/resources/css/owl.carousel.css" rel="stylesheet">
 <link href="${path}/resources/css/owl.theme.css" rel="stylesheet">
 <!-- Custom Fonts -->
-<link href="${path}/resources/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
+<link href="//cdn.bootcss.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
 
 <%-- <link rel="stylesheet" type="text/css" href="${path}/resources/css/public_reset.css" />
 <link rel="stylesheet" type="text/css" href="${path}/resources/css/system-release.css" />

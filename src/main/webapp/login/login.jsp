@@ -8,6 +8,13 @@ response.setHeader("Cache-Control","no-cache");
 response.setDateHeader("Expires", 0); 
 response.flushBuffer();
 %>
+<%
+String path = request.getContextPath();
+//request
+application.setAttribute("path",path);
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+application.setAttribute("basePath",basePath);
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -16,12 +23,11 @@ response.flushBuffer();
 <meta http-equiv="Pragma" content="no-cache" />
 <meta http-equiv="Cache-Control" content="no-cache" />
 <meta http-equiv="Expires" content="0" />
-<meta name="description" content="cms-信息发布系统" />
-<meta name="keywords" content="cms-信息发布系统" />
+<meta name="description" content="跆拳道视频分享平台" />
+<meta name="keywords" content="跆拳道视频分享平台" />
 <meta name="baidu-site-verification" content="v4SVMECT1g" />
-<title>cms-信息发布系统</title>
+<title>跆拳道视频分享平台</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<%@include file="/webCss.jsp"%>
 <script type="application/x-javascript">
 	addEventListener("load", function() {
 		 setTimeout(hideURLbar, 0);
@@ -29,76 +35,633 @@ response.flushBuffer();
 	 
 	function hideURLbar(){ window.scrollTo(0,1); } 
 </script>
-<meta name="keywords" content="" />
-<script type="text/javascript" src="${path}/resources/js/plugins/msgbox/msgbox.js"></script>
-<script type="text/javascript" src="${path}/resources/js/plugins/msgbox/msgUtil.js"></script>
-<script type="text/javascript" src="${path}/resources/js/DD_roundies_min.js"></script>
-<script type="text/javascript" src="${path}/resources/js/jqueryUtil/jquery.cookie.js"></script>
 </head>
-<body>
 
-<div class="login_background">
-    <img src="${path }/resources/images/loginbg .png" width="100%" height="100%" />
-    <div class="login_content">
-    	<div class="login_top_left clearfix">
-            <div class="login_logo"><img src="${path }/resources/images/logo.png" alt=""/></div>
-            <div class="login_top_text">信息发布系统</div>
-        </div>
-<!--         <div class="login"> -->
-        	<div class="login_opacity"></div>
-        	<div class="login_div">
-                <div class="welconme_login">欢迎登陆</div>
-                <form name='loginForm' id="loginForm" action="<%=request.getContextPath()%>/login.do" method='post'>
-                	
-                	<!--error tips start-->
-                 <div class="login_error" style="display: none;">
-                 	<div class="error_icon">
-                 		<img src="${path }/resources/images/error_close.png" />
-                 	</div>
-                 	<div class="error_content">
-                 		${ErrorMessage}
-                 	</div>
-                 </div>
-                 <!--error tips end-->
-                
-                    <div class="user clearfix">                        
-                        <img class="user_icon" src="${path }/resources/images/login/login_user_name_icon.png" />
-                        <input type="text" name="username" id="username" value="${errorUsername }" placeholder="请输入登录用户名" />                         
-                    </div>
-                    
-                    <div class="user clearfix pswd_margin_top ">                        
-                        <img class="user_icon" alt="" src="${path }/resources/images/login/login_user_pswd_icon.png" />
-                       <input type="password" name="password" placeholder="请输入登录密码" id="password" />                      		
-                    </div>
-                    
-                    <div class="about_pswd clearfix">                   	
-                            <div class="remeber_pswd" id="remeber_pswd">
-                            	<div id="trueDiv" style="display: none;"><img src="${path }/resources/images/checkout_ture.png" id="trueImg"/></div>
-                                <div id="falseDiv"><img src="${path }/resources/images/checkout_false.png" id="falseImg"/></div>
-                            </div>
-                            <label onclick="clickRememberMe();">记住帐号</label>
-                            <input id="rememberUserName" name="rememberUserName" type="hidden" value="1"/>  
-                            <span class="forgot_pswd">
-                            	<%-- <a href="javascript:void(0)">忘记密码？</a> --%>
-                            </span><%--${path }/user/toFindPwd.do target="_blank" --%>
-                    </div>
-                    
-                    <div class="check_code clearfix">
-                        <input type="text" name="veryCode" placeholder="请输入验证码" id="veryCode" maxlength="4" />
-                        <img id="imgObj" alt="" src="${path}/verifyCode.jpeg" onclick="changeImg()"/>
-                    </div>
-                    
-                    <div class="login_submit">                        
-                        <input type="button" value="登录" onclick="ajaxLogin_post()" />                      
-                    </div>
-                                         
-                </form>
-           	</div>        
-<!--       	</div> -->
-    </div>       
-</div>
+<body>
+<section id="container" class="index-page">
+		<div class="wrap-container zerogrid">
+			<!------------------------------------->
+			<div class="row">
+				<div class="header">
+					<h2>Most Viewed Videos</h2>
+				</div>
+				<div class="row">
+				<div class="most-viewed">
+					<div class="col-2-4">
+						<div class="wrap-col">
+							<div class="zoom-container">
+								<a href="single.html">
+									<span class="zoom-caption">
+										<i class="icon-play fa fa-play"></i>
+									</span>
+									<img src="${path}/resources/images/4.jpg" />
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="extra">
+					<div class="col-1-4">
+						<div class="wrap-col">
+							<div class="zoom-container">
+								<a href="single.html">
+									<span class="zoom-caption">
+										<i class="icon-play fa fa-play"></i>
+									</span>
+									<img src="${path}/resources/images/1.jpg" />
+								</a>
+							</div>
+							<div class="zoom-container">
+								<a href="single.html">
+									<span class="zoom-caption">
+										<i class="icon-play fa fa-play"></i>
+									</span>
+									<img src="${path}/resources/images/2.jpg" />
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="col-1-4">
+						<div class="wrap-col">
+							<div class="zoom-container">
+								<a href="single.html">
+									<span class="zoom-caption">
+										<i class="icon-play fa fa-play"></i>
+									</span>
+									<img src="${path}/resources/images/5.jpg" />
+								</a>
+							</div>
+							<div class="zoom-container">
+								<a href="single.html">
+									<span class="zoom-caption">
+										<i class="icon-play fa fa-play"></i>
+									</span>
+									<img src="${path}/resources/images/14.jpg" />
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				</div>
+			</div>
+			<div class="row" >
+				<div id="main-content" class="col-2-3">
+					<div class="wrap-content">
+						<section class="vid-tv">
+							<div class="header">
+								<h2>TV</h2>
+							</div>
+							<div class="row">
+								<div id="owl-demo-1" class="owl-carousel">
+									<div class="item wrap-vid">
+										<div class="zoom-container">
+											<a href="single.html">
+												<span class="zoom-caption">
+													<i class="icon-play fa fa-play"></i>
+												</span>
+												<img src="${path}/resources/images/1.jpg" />
+											</a>
+										</div>
+										<h3 class="vid-name"><a href="#">Video's Name</a></h3>
+										<div class="info">
+											<h5>By <a href="#">Kelvin</a></h5>
+											<span><i class="fa fa-calendar"></i>25/3/2015</span> 
+											<span><i class="fa fa-heart"></i>1,200</span>
+										</div>
+									</div>
+									<div class="item wrap-vid">
+										<div class="zoom-container">
+											<a href="single.html">
+												<span class="zoom-caption">
+													<i class="icon-play fa fa-play"></i>
+												</span>
+												<img src="${path}/resources/images/2.jpg" />
+											</a>
+										</div>
+										<h3 class="vid-name"><a href="#">Video's Name</a></h3>
+										<div class="info">
+											<h5>By <a href="#">Kelvin</a></h5>
+											<span><i class="fa fa-calendar"></i>25/3/2015</span> 
+											<span><i class="fa fa-heart"></i>1,200</span>
+										</div>
+									</div>
+									<div class="item wrap-vid">
+										<div class="zoom-container">
+											<a href="single.html">
+												<span class="zoom-caption">
+													<i class="icon-play fa fa-play"></i>
+												</span>
+												<img src="${path}/resources/images/3.jpg" />
+											</a>
+										</div>
+										<h3 class="vid-name"><a href="#">Video's Name</a></h3>
+										<div class="info">
+											<h5>By <a href="#">Kelvin</a></h5>
+											<span><i class="fa fa-calendar"></i>25/3/2015</span> 
+											<span><i class="fa fa-heart"></i>1,200</span>
+										</div>
+									</div>
+									<div class="item wrap-vid">
+										<div class="zoom-container">
+											<a href="single.html">
+												<span class="zoom-caption">
+													<i class="icon-play fa fa-play"></i>
+												</span>
+												<img src="${path}/resources/images/4.jpg" />
+											</a>
+										</div>
+										<h3 class="vid-name"><a href="#">Video's Name</a></h3>
+										<div class="info">
+											<h5>By <a href="#">Kelvin</a></h5>
+											<span><i class="fa fa-calendar"></i>25/3/2015</span> 
+											<span><i class="fa fa-heart"></i>1,200</span>
+										</div>
+									</div>
+									<div class="item wrap-vid">
+										<div class="zoom-container">
+											<a href="single.html">
+												<span class="zoom-caption">
+													<i class="icon-play fa fa-play"></i>
+												</span>
+												<img src="${path}/resources/images/5.jpg" />
+											</a>
+										</div>
+										<h3 class="vid-name"><a href="#">Video's Name</a></h3>
+										<div class="info">
+											<h5>By <a href="#">Kelvin</a></h5>
+											<span><i class="fa fa-calendar"></i>25/3/2015</span> 
+											<span><i class="fa fa-heart"></i>1,200</span>
+										</div>
+									</div>
+									<div class="item wrap-vid">
+										<div class="zoom-container">
+											<a href="single.html">
+												<span class="zoom-caption">
+													<i class="icon-play fa fa-play"></i>
+												</span>
+												<img src="${path}/resources/images/14.jpg" />
+											</a>
+										</div>
+										<h3 class="vid-name"><a href="#">Video's Name</a></h3>
+										<div class="info">
+											<h5>By <a href="#">Kelvin</a></h5>
+											<span><i class="fa fa-calendar"></i>25/3/2015</span> 
+											<span><i class="fa fa-heart"></i>1,200</span>
+										</div>
+									</div>
+									<div class="item wrap-vid">
+										<div class="zoom-container">
+											<a href="single.html">
+												<span class="zoom-caption">
+													<i class="icon-play fa fa-play"></i>
+												</span>
+												<img src="${path}/resources/images/3.jpg" />
+											</a>
+										</div>
+										<h3 class="vid-name"><a href="#">Video's Name</a></h3>
+										<div class="info">
+											<h5>By <a href="#">Kelvin</a></h5>
+											<span><i class="fa fa-calendar"></i>25/3/2015</span> 
+											<span><i class="fa fa-heart"></i>1,200</span>
+										</div>
+									</div>
+									<div class="item wrap-vid">
+										<div class="zoom-container">
+											<a href="single.html">
+												<span class="zoom-caption">
+													<i class="icon-play fa fa-play"></i>
+												</span>
+												<img src="${path}/resources/images/5.jpg" />
+											</a>
+										</div>
+										<h3 class="vid-name"><a href="#">Video's Name</a></h3>
+										<div class="info">
+											<h5>By <a href="#">Kelvin</a></h5>
+											<span><i class="fa fa-calendar"></i>25/3/2015</span> 
+											<span><i class="fa fa-heart"></i>1,200</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</section>
+						
+						<section class="vid-sport">
+							<div class="header">
+								<h2>Sport</h2>
+							</div>
+							<div class="row"><!--Start Box-->
+								<div id="owl-demo-2" class="owl-carousel">
+									<div class="item wrap-vid">
+										<div class="zoom-container">
+											<a href="single.html">
+												<span class="zoom-caption">
+													<i class="icon-play fa fa-play"></i>
+												</span>
+												<img src="${path}/resources/images/1.jpg" />
+											</a>
+										</div>
+										<h3 class="vid-name"><a href="#">Video's Name</a></h3>
+										<div class="info">
+											<h5>By <a href="#">Kelvin</a></h5>
+											<span><i class="fa fa-calendar"></i>25/3/2015</span> 
+											<span><i class="fa fa-heart"></i>1,200</span>
+										</div>
+									</div>
+									<div class="item wrap-vid">
+										<div class="zoom-container">
+											<a href="single.html">
+												<span class="zoom-caption">
+													<i class="icon-play fa fa-play"></i>
+												</span>
+												<img src="${path}/resources/images/2.jpg" />
+											</a>
+										</div>
+										<h3 class="vid-name"><a href="#">Video's Name</a></h3>
+										<div class="info">
+											<h5>By <a href="#">Kelvin</a></h5>
+											<span><i class="fa fa-calendar"></i>25/3/2015</span> 
+											<span><i class="fa fa-heart"></i>1,200</span>
+										</div>
+									</div>
+									<div class="item wrap-vid">
+										<div class="zoom-container">
+											<a href="single.html">
+												<span class="zoom-caption">
+													<i class="icon-play fa fa-play"></i>
+												</span>
+												<img src="${path}/resources/images/3.jpg" />
+											</a>
+										</div>
+										<h3 class="vid-name"><a href="#">Video's Name</a></h3>
+										<div class="info">
+											<h5>By <a href="#">Kelvin</a></h5>
+											<span><i class="fa fa-calendar"></i>25/3/2015</span> 
+											<span><i class="fa fa-heart"></i>1,200</span>
+										</div>
+									</div>
+									<div class="item wrap-vid">
+										<div class="zoom-container">
+											<a href="single.html">
+												<span class="zoom-caption">
+													<i class="icon-play fa fa-play"></i>
+												</span>
+												<img src="${path}/resources/images/4.jpg" />
+											</a>
+										</div>
+										<h3 class="vid-name"><a href="#">Video's Name</a></h3>
+										<div class="info">
+											<h5>By <a href="#">Kelvin</a></h5>
+											<span><i class="fa fa-calendar"></i>25/3/2015</span> 
+											<span><i class="fa fa-heart"></i>1,200</span>
+										</div>
+									</div>
+									<div class="item wrap-vid">
+										<div class="zoom-container">
+											<a href="single.html">
+												<span class="zoom-caption">
+													<i class="icon-play fa fa-play"></i>
+												</span>
+												<img src="${path}/resources/images/5.jpg" />
+											</a>
+										</div>
+										<h3 class="vid-name"><a href="#">Video's Name</a></h3>
+										<div class="info">
+											<h5>By <a href="#">Kelvin</a></h5>
+											<span><i class="fa fa-calendar"></i>25/3/2015</span> 
+											<span><i class="fa fa-heart"></i>1,200</span>
+										</div>
+									</div>
+									<div class="item wrap-vid">
+										<div class="zoom-container">
+											<a href="single.html">
+												<span class="zoom-caption">
+													<i class="icon-play fa fa-play"></i>
+												</span>
+												<img src="${path}/resources/images/14.jpg" />
+											</a>
+										</div>
+										<h3 class="vid-name"><a href="#">Video's Name</a></h3>
+										<div class="info">
+											<h5>By <a href="#">Kelvin</a></h5>
+											<span><i class="fa fa-calendar"></i>25/3/2015</span> 
+											<span><i class="fa fa-heart"></i>1,200</span>
+										</div>
+									</div>
+									<div class="item wrap-vid">
+										<div class="zoom-container">
+											<a href="single.html">
+												<span class="zoom-caption">
+													<i class="icon-play fa fa-play"></i>
+												</span>
+												<img src="${path}/resources/images/3.jpg" />
+											</a>
+										</div>
+										<h3 class="vid-name"><a href="#">Video's Name</a></h3>
+										<div class="info">
+											<h5>By <a href="#">Kelvin</a></h5>
+											<span><i class="fa fa-calendar"></i>25/3/2015</span> 
+											<span><i class="fa fa-heart"></i>1,200</span>
+										</div>
+									</div>
+									<div class="item wrap-vid">
+										<div class="zoom-container">
+											<a href="single.html">
+												<span class="zoom-caption">
+													<i class="icon-play fa fa-play"></i>
+												</span>
+												<img src="${path}/resources/images/5.jpg" />
+											</a>
+										</div>
+										<h3 class="vid-name"><a href="#">Video's Name</a></h3>
+										<div class="info">
+											<h5>By <a href="#">Kelvin</a></h5>
+											<span><i class="fa fa-calendar"></i>25/3/2015</span> 
+											<span><i class="fa fa-heart"></i>1,200</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</section>
+						
+						<section class="vid-music">
+							<div class="header">
+								<h2>Music</h2>
+							</div>
+							<div class="row"><!--Start Box-->
+								<div id="owl-demo-3" class="owl-carousel">
+									<div class="item wrap-vid">
+										<div class="zoom-container">
+											<a href="single.html">
+												<span class="zoom-caption">
+													<i class="icon-play fa fa-play"></i>
+												</span>
+												<img src="${path}/resources/images/1.jpg" />
+											</a>
+										</div>
+										<h3 class="vid-name"><a href="#">Video's Name</a></h3>
+										<div class="info">
+											<h5>By <a href="#">Kelvin</a></h5>
+											<span><i class="fa fa-calendar"></i>25/3/2015</span> 
+											<span><i class="fa fa-heart"></i>1,200</span>
+										</div>
+									</div>
+									<div class="item wrap-vid">
+										<div class="zoom-container">
+											<a href="single.html">
+												<span class="zoom-caption">
+													<i class="icon-play fa fa-play"></i>
+												</span>
+												<img src="${path}/resources/images/2.jpg" />
+											</a>
+										</div>
+										<h3 class="vid-name"><a href="#">Video's Name</a></h3>
+										<div class="info">
+											<h5>By <a href="#">Kelvin</a></h5>
+											<span><i class="fa fa-calendar"></i>25/3/2015</span> 
+											<span><i class="fa fa-heart"></i>1,200</span>
+										</div>
+									</div>
+									<div class="item wrap-vid">
+										<div class="zoom-container">
+											<a href="single.html">
+												<span class="zoom-caption">
+													<i class="icon-play fa fa-play"></i>
+												</span>
+												<img src="${path}/resources/images/3.jpg" />
+											</a>
+										</div>
+										<h3 class="vid-name"><a href="#">Video's Name</a></h3>
+										<div class="info">
+											<h5>By <a href="#">Kelvin</a></h5>
+											<span><i class="fa fa-calendar"></i>25/3/2015</span> 
+											<span><i class="fa fa-heart"></i>1,200</span>
+										</div>
+									</div>
+									<div class="item wrap-vid">
+										<div class="zoom-container">
+											<a href="single.html">
+												<span class="zoom-caption">
+													<i class="icon-play fa fa-play"></i>
+												</span>
+												<img src="${path}/resources/images/4.jpg" />
+											</a>
+										</div>
+										<h3 class="vid-name"><a href="#">Video's Name</a></h3>
+										<div class="info">
+											<h5>By <a href="#">Kelvin</a></h5>
+											<span><i class="fa fa-calendar"></i>25/3/2015</span> 
+											<span><i class="fa fa-heart"></i>1,200</span>
+										</div>
+									</div>
+									<div class="item wrap-vid">
+										<div class="zoom-container">
+											<a href="single.html">
+												<span class="zoom-caption">
+													<i class="icon-play fa fa-play"></i>
+												</span>
+												<img src="${path}/resources/images/5.jpg" />
+											</a>
+										</div>
+										<h3 class="vid-name"><a href="#">Video's Name</a></h3>
+										<div class="info">
+											<h5>By <a href="#">Kelvin</a></h5>
+											<span><i class="fa fa-calendar"></i>25/3/2015</span> 
+											<span><i class="fa fa-heart"></i>1,200</span>
+										</div>
+									</div>
+									<div class="item wrap-vid">
+										<div class="zoom-container">
+											<a href="single.html">
+												<span class="zoom-caption">
+													<i class="icon-play fa fa-play"></i>
+												</span>
+												<img src="${path}/resources/images/14.jpg" />
+											</a>
+										</div>
+										<h3 class="vid-name"><a href="#">Video's Name</a></h3>
+										<div class="info">
+											<h5>By <a href="#">Kelvin</a></h5>
+											<span><i class="fa fa-calendar"></i>25/3/2015</span> 
+											<span><i class="fa fa-heart"></i>1,200</span>
+										</div>
+									</div>
+									<div class="item wrap-vid">
+										<div class="zoom-container">
+											<a href="single.html">
+												<span class="zoom-caption">
+													<i class="icon-play fa fa-play"></i>
+												</span>
+												<img src="${path}/resources/images/3.jpg" />
+											</a>
+										</div>
+										<h3 class="vid-name"><a href="#">Video's Name</a></h3>
+										<div class="info">
+											<h5>By <a href="#">Kelvin</a></h5>
+											<span><i class="fa fa-calendar"></i>25/3/2015</span> 
+											<span><i class="fa fa-heart"></i>1,200</span>
+										</div>
+									</div>
+									<div class="item wrap-vid">
+										<div class="zoom-container">
+											<a href="single.html">
+												<span class="zoom-caption">
+													<i class="icon-play fa fa-play"></i>
+												</span>
+												<img src="${path}/resources/images/5.jpg" />
+											</a>
+										</div>
+										<h3 class="vid-name"><a href="#">Video's Name</a></h3>
+										<div class="info">
+											<h5>By <a href="#">Kelvin</a></h5>
+											<span><i class="fa fa-calendar"></i>25/3/2015</span> 
+											<span><i class="fa fa-heart"></i>1,200</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</section>
+					</div>
+				</div>
+				<div id="sidebar" class="col-1-3">
+					<form id="form-container" action="">
+						<!--<input type="submit" id="searchsubmit" value="" />-->
+						<a class="search-submit-button" href="javascript:void(0)">
+							<i class="fa fa-search"></i>
+						</a>
+						<div id="searchtext">
+							<input type="text" id="s" name="s" placeholder="Search Something...">
+						</div>
+					</form>
+					<!---- Start Widget ---->
+					<div class="widget wid-post">
+						<div class="wid-header">
+							<h5>Latest Posts</h5>
+						</div>
+						<div class="wid-content">
+							<div class="post wrap-vid">
+								<div class="zoom-container">
+									<a href="single.html">
+										<span class="zoom-caption">
+											<i class="icon-play fa fa-play"></i>
+										</span>
+										<img src="${path}/resources/images/4.jpg" />
+									</a>
+								</div>
+								<div class="wrapper">
+									<h5 class="vid-name"><a href="#">Video's Name</a></h5>
+									<div class="info">
+										<h6>By <a href="#">Kelvin</a></h6>
+										<span><i class="fa fa-calendar"></i>25/3/2015</span> 
+										<span><i class="fa fa-heart"></i>1,200</span>
+									</div>
+								</div>
+							</div>
+							<div class="post wrap-vid">
+								<div class="zoom-container">
+									<a href="single.html">
+										<span class="zoom-caption">
+											<i class="icon-play fa fa-play"></i>
+										</span>
+										<img src="${path}/resources/images/14.jpg" />
+									</a>
+								</div>
+								<div class="wrapper">
+									<h5 class="vid-name"><a href="#">Video's Name</a></h5>
+									<div class="info">
+										<h6>By <a href="#">Kelvin</a></h6>
+										<span><i class="fa fa-calendar"></i>25/3/2015</span> 
+										<span><i class="fa fa-heart"></i>1,200</span>
+									</div>
+								</div>
+							</div>
+							<div class="post wrap-vid">
+								<div class="zoom-container">
+									<a href="single.html">
+										<span class="zoom-caption">
+											<i class="icon-play fa fa-play"></i>
+										</span>
+										<img src="${path}/resources/images/3.jpg" />
+									</a>
+								</div>
+								<div class="wrapper">
+									<h5 class="vid-name"><a href="#">Video's Name</a></h5>
+									<div class="info">
+										<h6>By <a href="#">Kelvin</a></h6>
+										<span><i class="fa fa-calendar"></i>25/3/2015</span> 
+										<span><i class="fa fa-heart"></i>1,200</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!---- Start Widget ---->
+					<div class="widget wid-news">
+						<div class="wid-header">
+							<h5>Top News</h5>
+						</div>
+						<div class="wid-content">
+							<div class="row">
+								<div class="wrap-vid">
+									<div class="zoom-container">
+										<a href="single.html">
+											<span class="zoom-caption">
+												<i class="icon-play fa fa-play"></i>
+											</span>
+											<img src="${path}/resources/images/1.jpg" />
+										</a>
+									</div>
+									<h3 class="vid-name">Video's Name</h3>
+									<div class="info">
+										<h5>By <a href="#">Kelvin</a></h5>
+										<span><i class="fa fa-calendar"></i>25/3/2015</span> 
+										<span><i class="fa fa-heart"></i>1,200</span>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="wrap-vid">
+									<div class="zoom-container">
+										<a href="single.html">
+											<span class="zoom-caption">
+												<i class="icon-play fa fa-play"></i>
+											</span>
+											<img src="${path}/resources/images/2.jpg" />
+										</a>
+									</div>
+									<h3 class="vid-name">Video's Name</h3>
+									<div class="info">
+										<h5>By <a href="#">Kelvin</a></h5>
+										<span><i class="fa fa-calendar"></i>25/3/2015</span> 
+										<span><i class="fa fa-heart"></i>1,200</span>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="wrap-vid">
+									<div class="zoom-container">
+										<a href="single.html">
+											<span class="zoom-caption">
+												<i class="icon-play fa fa-play"></i>
+											</span>
+											<img src="${path}/resources/images/4.jpg" />
+										</a>
+									</div>
+									<h3 class="vid-name">Video's Name</h3>
+									<div class="info">
+										<h5>By <a href="#">Kelvin</a></h5>
+										<span><i class="fa fa-calendar"></i>25/3/2015</span> 
+										<span><i class="fa fa-heart"></i>1,200</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
     
-<script type="text/javascript" >
+<!-- <script type="text/javascript" >
 	
 	document.onkeydown=keyListener;
 	function keyListener(e){
@@ -215,6 +778,32 @@ response.flushBuffer();
 			$("#rememberUserName").val("1");
 		}
 	}
-</script>
+</script> -->
+<!-- Slider -->
+	<script src="${path}/resources/js/jquery-2.1.1.js"></script>
+	<script src="${path}/resourcesjs/demo.js"></script>
+	<script src="${path}/resources/js/classie.js"></script>
+	<!-- Carousel -->
+	<script src="${path}/resources/js/owl.carousel.js"></script>
+    <script>
+    $(document).ready(function() {
+
+      $("#owl-demo-1").owlCarousel({
+        items : 4,
+        lazyLoad : true,
+        navigation : true
+      });
+	  $("#owl-demo-2").owlCarousel({
+        items : 4,
+        lazyLoad : true,
+        navigation : true
+      });
+	  $("#owl-demo-3").owlCarousel({
+        items : 4,
+        lazyLoad : true,
+        navigation : true
+      });
+    });
+    </script>
 </body>
 </html>

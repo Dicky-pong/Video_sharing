@@ -20,7 +20,7 @@
     
 	<!-- 对登录/注册！所有的用户都可以访问 -->
 	<security:http pattern="/help/help.html" security="none"/>
-	<security:http pattern="/login/loginPage.jsp*" security="none"/>
+	<security:http pattern="/login/login.jsp*" security="none"/>
 	<security:http pattern="/login/noticeList.jsp*" security="none"/>
 	<security:http pattern="/login/noticeContent.jsp*" security="none"/>
 	<security:http pattern="/login/findPassword.jsp" security="none"/>
@@ -60,7 +60,7 @@
     <bean id="loginEntryPoint"
         class="org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint">
          <!-- 默认登录页的url -->
-         <constructor-arg value="/login/loginPage.jsp"></constructor-arg>
+         <constructor-arg value="/login/login.jsp"></constructor-arg>
     </bean>
     
     <!-- 管理认证 -->
@@ -99,7 +99,7 @@
             <bean
                 class="com.pwx.video_sharing.common.security.CustomLoginFail">
                 <!-- 登录失败后的默认Url -->
-                <property name="defaultFailureUrl" value="/main/index.do" />
+                <property name="defaultFailureUrl" value="/login/login.jsp" />
             </bean>
         </property>
     </bean>
@@ -109,7 +109,7 @@
         <!-- 处理退出的虚拟url -->
         <property name="filterProcessesUrl" value="/logout.do" />
         <!-- 退出处理成功后的默认显示url -->
-        <constructor-arg index="0" value="/login/loginPage.jsp" />
+        <constructor-arg index="0" value="/login/login.jsp" />
         <constructor-arg index="1">
             <!-- 退出成功后的handler列表 -->
             <array>
@@ -132,7 +132,7 @@
 	
 	<bean id="concurrencyFilter" class="org.springframework.security.web.session.ConcurrentSessionFilter">
 		<property name="sessionRegistry" ref="sessionRegistry" />
-		<property name="expiredUrl" value="/login/loginPage.jsp" />
+		<property name="expiredUrl" value="/login/login.jsp" />
 	</bean>
 	
 	<bean id="rememberMeFilter" class="org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter">

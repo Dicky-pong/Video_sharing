@@ -7,7 +7,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<link rel="stylesheet"  href="${path}/resources/css/login/login.css" type="text/css"/>
 
 <title>跆拳道&nbsp;视频分享平台&nbsp;-&nbsp;
 	<sitemesh:write property='title'></sitemesh:write>
@@ -40,17 +39,30 @@
 				</div>
 			</div>
 		</div>
-		<div class="bottom">
+		<!-- <div class="bottom">
 			<div class="zerogrid">
 				<div class="row">
 					<span>Welcome to Us - Contact Us at <a href="contact.html">HERE</a></span>
 				</div>
 			</div>
-		</div>
+		</div> -->
     </header>
 	<!-- 头部end -->
-	
-	
+	<!--菜单start-->
+	<a href="#" class="nav-toggle">Toggle Navigation</a>
+    <nav class="cmn-tile-nav">
+		<ul class="clearfix">
+			<li class="colour-1"><a href="gallery.html">跆拳道</a></li>
+			<li class="colour-2"><a href="gallery.html">散打</a></li>
+			<li class="colour-3"><a href="gallery.html">空手道</a></li>
+			<li class="colour-4"><a href="gallery.html">泰拳</a></li>
+			<li class="colour-5"><a href="gallery.html">柔道</a></li>
+			<li class="colour-6"><a href="gallery.html">截拳道</a></li>
+			<li class="colour-7"><a href="gallery.html">中国套路</a></li>
+			<li class="colour-8"><a href="gallery.html">更多</a></li>
+		</ul>
+    </nav>
+	<!-- 菜单end -->
 	<div>
 		<div id="content" class="span-24 last">
 			<sitemesh:write property='body' />
@@ -81,7 +93,7 @@
 			<div class="row">
 				<div class="col-1-4 col-footer-1">
 					<div class="wrap-col">
-						<a href="index.html" class="logo"><img src="images/logo.png" /></a>
+						<a href="index.html" class="logo"><img src="${path}/resources/images/logo.png" /></a>
 						<p>Ut volutpat consectetur aliquam. Curabitur auctor in nis ulum ornare. Sed consequat, augue condimentum fermentum gravida, metus elit vehicula dui.</p>
 					</div>
 				</div>
@@ -155,7 +167,7 @@
 		</div>
 	</footer>
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 
 $(document).ready(function(){
 	
@@ -175,7 +187,7 @@ function myHide(id){
     $('.Cover_layer').hide();
 }
 
-</script>
+</script> -->
 </div>
 </body>
 </html>

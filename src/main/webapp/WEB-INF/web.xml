@@ -142,7 +142,7 @@
   	<!-- 404无效路劲页面配置 -->
   	<error-page>  
 	    <error-code>404</error-code>  
-	    <location>/login/loginPage.jsp</location>  
+	    <location>/login/login.jsp</location>  
 	</error-page>
 	
 	
@@ -247,7 +247,7 @@
 	</servlet-mapping> -->
 	
 	<welcome-file-list>
-		<welcome-file>login/loginPage.jsp</welcome-file>
+		<welcome-file>login/login.jsp</welcome-file>
 	</welcome-file-list>
   
 </web-app>
