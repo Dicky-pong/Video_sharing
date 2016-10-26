@@ -660,7 +660,25 @@ application.setAttribute("basePath",basePath);
 			</div>
 		</div>
 	</section>
-    
+	<div class="theme-popover">
+     <div class="theme-poptit">
+          <a href="javascript:;" title="关闭" class="close">×</a>
+          <h3>登录</h3>
+     </div>
+     <div class="theme-popbod dform">
+           <form class="theme-signin" id="loginForm" action="<%=request.getContextPath()%>/login.do" method='post'>
+                <ol>
+					<li><h4>请先登录</h4></li>
+					<li><strong>用户名：</strong><input type="text" name="username" id="username" value="${errorUsername }" placeholder="请输入登录用户名" /></li>
+					<li><strong>密码：</strong><input type="password" name="password" placeholder="请输入登录密码" id="password" /></li>
+					<li><strong>验证码：</strong><input type="text" name="veryCode" placeholder="请输入验证码" id="veryCode" maxlength="4" />
+                        <img id="imgObj" alt="" src="${path}/verifyCode.jpeg" onclick="changeImg()"/></li>
+					<li><input class="btn btn-primary" type="submit" name="submit" onclick="ajaxLogin_post()"
+						value=" 登 录 " /></li>
+				</ol>
+           </form>
+     </div>
+</div>
 <!-- <script type="text/javascript" >
 	
 	document.onkeydown=keyListener;
@@ -787,7 +805,14 @@ application.setAttribute("basePath",basePath);
 	<script src="${path}/resources/js/owl.carousel.js"></script>
     <script>
     $(document).ready(function() {
-
+    	$('.theme-login').click(function(){
+    		$('.theme-popover-mask').fadeIn(100);
+    		$('.theme-popover').slideDown(200);
+    	})
+    	$('.theme-poptit .close').click(function(){
+    		$('.theme-popover-mask').fadeOut(100);
+    		$('.theme-popover').slideUp(200);
+    	})
       $("#owl-demo-1").owlCarousel({
         items : 4,
         lazyLoad : true,
@@ -804,6 +829,60 @@ application.setAttribute("basePath",basePath);
         navigation : true
       });
     });
+    
+    function changeImg(){    
+	    var imgSrc = $("#imgObj");    
+	    var src = imgSrc.attr("src");    
+	    imgSrc.attr("src",chgUrl(src));    
+	}
+    
+    function chgUrl(url){
+	    var timestamp = (new Date()).valueOf();    
+//	     url = url.substring(0,17);
+	    if((url.indexOf("&")>=0)){
+	        url = url + "×tamp=" + timestamp;
+	    }else{
+	        url = url + "?timestamp=" + timestamp;    
+	    }
+	    return url;
+	}
+    
+    function ajaxLogin_post(){
+		var userName = $("#username").val();
+		var password = $("#password").val();
+		var veryCode = $("#veryCode").val();
+		if(userName == null || userName == "" || userName == "请输入邮箱登陆"){
+			setErrorTips("用户名不能为空");
+			$("#userName").focus();
+			return;
+		}
+		if(password == null || password == ""){
+			setErrorTips("密码不能为空");
+			$("#password").focus();
+			return;
+		}else if(password.length < 6){
+			setErrorTips("密码格式错误");
+			$("#password").focus();
+			return;
+		}
+		if(veryCode == null || veryCode == "" || veryCode == "请输入验证码"){
+			setErrorTips("验证码不能为空");
+			$("#veryCode").focus();
+			return;
+		}
+		var rememberMe = $("#rememberUserName").val();
+		if(rememberMe == "0"){
+			if(userName != null && userName != ""){
+				$.cookie('username', userName, {expires:30});
+			}
+		}else{
+			if(userName != null && userName != ""){
+				$.cookie('username', "");
+			}
+			
+		}
+		$("#loginForm").submit();
+	}
     </script>
 </body>
 </html>

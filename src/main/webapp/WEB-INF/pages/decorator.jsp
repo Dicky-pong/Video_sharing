@@ -11,6 +11,8 @@
 <title>跆拳道&nbsp;视频分享平台&nbsp;-&nbsp;
 	<sitemesh:write property='title'></sitemesh:write>
 </title>
+<link href="${path}/resources/css/login.css" rel="stylesheet"/>
+
 <!--引入头部页面 -->
 <%@include file="webCss.jsp"%>
 <!-- 头部 -->
@@ -26,7 +28,7 @@
 					<a href="index.html" class="logo"><img src="${path }/resources/images/logo.png" /></a>
 					<ul class="quick-link">
 						<li><a href="#" title="Upload Video"><i class="fa fa-upload"></i></a></li>
-						<li><a href="#" title="Log in"><i class="fa fa-user"></i></a></li>
+						<li><a class="theme-login" href="#" title="Log in"><i class="fa fa-user"></i></a></li>
 						<li><a href="#" title="Warning"><i class="fa fa-bell"></i></a></li>
 					</ul>
 					<ul class="social">

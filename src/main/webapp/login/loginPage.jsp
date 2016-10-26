@@ -247,7 +247,7 @@ application.setAttribute("basePath",basePath);
 			<div class="clearfix">
 				<div class="l-left-wrap l">
 		<form name='loginForm' id="loginForm" action="<%=request.getContextPath()%>/login.do" method='post'>
-						<!-- <p class="rlf-tip-globle color-red" id="signin-globle-error"></p>
+						 <p class="rlf-tip-globle color-red" id="signin-globle-error"></p>
 						</div>
 						<div class="rlf-group pr">
 							<input type="text" value="" maxlength="37" name="username" id="username"
@@ -287,7 +287,7 @@ application.setAttribute("basePath",basePath);
 						<div class="rlf-group clearfix">
 							<input type="button" value="登录" hidefocus="true"
 								class="btn-red btn-full xa-login" onclick="ajaxLogin_post()"/>
-						</div> -->
+						</div> 
 						<div class="login_error" style="display: none;">
                  	<div class="error_icon">
                  		<img src="${path }/resources/images/error_close.png" />
@@ -329,73 +329,6 @@ application.setAttribute("basePath",basePath);
                         <input type="button" value="登录" onclick="ajaxLogin_post()" />                      
                     </div>
                     
-                    <div class="registernews_con">
-				<div class="registernews_con_box">
-					<!-- 手机号码  start -->
-					<div class="registernews_con_item">
-						<div class="registernews_con_item_title">
-							<span>手机号码：</span>
-						</div>
-						<div class="registernews_con_item_con">
-							<input type="text" class="" maxlength="11" id="cellphone" placeholder="请输入11位手机号码">
-						</div>
-						<div class="registernews_con_item_tips">
-							<span>请输入正确的手机号</span>
-						</div>
-						<p class="registernews_con_item_p">可通过该手机号码快速找回密码！</p>
-					</div>
-					<!-- 手机号码  end -->
-					<!-- 设置登录密码  start -->
-					<div class="registernews_con_item">
-						<div class="registernews_con_item_title">
-							<span>设置登录密码：</span>
-						</div>
-						<div class="registernews_con_item_con">
-							<input type="password" class="" maxlength="18" id="password" placeholder="请输入登录密码">
-						</div>
-						<div class="registernews_con_item_tips">
-							<span>请输入正确的登录密码</span>
-						</div>
-						<p class="registernews_con_item_p">
-							密码长度在6~18位之间，必须以字母开头，包含字母和数字！</p>
-					</div>
-					<!-- 设置登录密码  end -->
-					<!-- 再次输入登录密码  start -->
-					<div class="registernews_con_item">
-						<div class="registernews_con_item_title">
-							<span>再次输入密码：</span>
-						</div>
-						<div class="registernews_con_item_con">
-							<input type="password" class="" maxlength="18" id="regpassword" placeholder="再次输入密码">
-						</div>
-						<div class="registernews_con_item_tips">
-							<span>两次密码输入不同</span>
-						</div>
-						<p class="registernews_con_item_p">两次密码要一致！</p>
-					</div>
-					<!-- 再次输入登录密码  end -->
-					<!-- 验证码  start -->
-					<div class="registernews_con_item">
-						<div class="registernews_con_item_title">
-							<span>验证码：</span>
-						</div>
-						<div class="registernews_con_item_con item_con_widths">
-							<input type="text" class="" maxlength="6" id="smscode" placeholder="请输入验证码"> <span
-								class="registernews_con_item_con_btn"> <a
-								class="verification_code_b_a" href="javascript:void(0);" onclick="onGetRegisterSMSCode(this)">获取验证码</a>
-							</span>
-						</div>
-						<div class="registernews_con_item_tips">
-							<span>请输入验证码</span>
-						</div>
-						<p class="registernews_con_item_p" style="color: #ff0202;" id="tips">
-			    		</p>
-					</div>
-					<!-- 验证码  end -->
-
-				</div>
-			</div>
-						
 					</form>
 				</div>
 			</div>
