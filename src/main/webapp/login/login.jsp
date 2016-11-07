@@ -660,6 +660,7 @@ application.setAttribute("basePath",basePath);
 			</div>
 		</div>
 	</section>
+	<!-- 登录弹窗start -->
 	<div class="theme-popover">
      <div class="theme-poptit">
           <a href="javascript:;" title="关闭" class="close">×</a>
@@ -678,125 +679,32 @@ application.setAttribute("basePath",basePath);
 				</ol>
            </form>
      </div>
-</div>
-<!-- <script type="text/javascript" >
+	</div>
+	<!-- 登录弹窗end -->
 	
-	document.onkeydown=keyListener;
-	function keyListener(e){
-	    e = e ? e : event;// 兼容FF
-	    if(e.keyCode == 13){
-	    	ajaxLogin_post();
-	    }
-	}
-
-	$(document).ready(function(c) {
-		
-		var uName = $.cookie('username');    
-	     if(uName != null && uName != "null" && uName != "") {  
-	     	$("#username").val(uName);  
-	        $("#falseDiv").hide();	
-			$("#trueDiv").show();
-			$("#rememberUserName").val("0"); 
-	     } 
-		var ErrorMessage = '${ErrorMessage}';
-		if(ErrorMessage != null && ErrorMessage != ""){
-			$(".login_error").show();
-		}
-		DD_roundies.addRule('.div_circle', '45px 45px 45px 45px', true);
-		$('.close').on('click', function(c){
-			$('.login-form').fadeOut('slow', function(c){
-		  		$('.login-form').remove();
-			});
-		});	  
-		// 勾选记住密码
-		$("#falseImg").on("click",function(){
-			$("#falseDiv").hide();	
-			$("#trueDiv").show();
-			$("#rememberUserName").val("0");
-			
-		});
-		// 取消勾选记住密码
-		$("#trueImg").on("click",function(){
-			$("#falseDiv").show();	
-			$("#trueDiv").hide();
-			$("#rememberUserName").val("1");
-		});
-		$("#check_code").onlyNum();
-	});
-	
-	function changeImg(){    
-	    var imgSrc = $("#imgObj");    
-	    var src = imgSrc.attr("src");    
-	    imgSrc.attr("src",chgUrl(src));    
-	}
-	
-	function chgUrl(url){
-	    var timestamp = (new Date()).valueOf();    
-//	     url = url.substring(0,17);
-	    if((url.indexOf("&")>=0)){
-	        url = url + "×tamp=" + timestamp;
-	    }else{
-	        url = url + "?timestamp=" + timestamp;    
-	    }
-	    return url;
-	}
-	
-	function ajaxLogin_post(){
-		var userName = $("#username").val();
-		var password = $("#password").val();
-		var veryCode = $("#veryCode").val();
-		if(userName == null || userName == "" || userName == "请输入邮箱登陆"){
-			setErrorTips("用户名不能为空");
-			$("#userName").focus();
-			return;
-		}
-		if(password == null || password == ""){
-			setErrorTips("密码不能为空");
-			$("#password").focus();
-			return;
-		}else if(password.length < 6){
-			setErrorTips("密码格式错误");
-			$("#password").focus();
-			return;
-		}
-		if(veryCode == null || veryCode == "" || veryCode == "请输入验证码"){
-			setErrorTips("验证码不能为空");
-			$("#veryCode").focus();
-			return;
-		}
-		var rememberMe = $("#rememberUserName").val();
-		if(rememberMe == "0"){
-			if(userName != null && userName != ""){
-				$.cookie('username', userName, {expires:30});
-			}
-		}else{
-			if(userName != null && userName != ""){
-				$.cookie('username', "");
-			}
-			
-		}
-		$("#loginForm").submit();
-	}
-	
-	function setErrorTips(errorMessage){
-		$(".error_content").html(errorMessage);
-		$(".login_error").show();
-	}
-	
-	function clickRememberMe(){
-		var userName = $("#username").val();
-		var rememberMe = $("#rememberUserName").val();
-		if(rememberMe == "1"){
-			$("#falseDiv").hide();	
-			$("#trueDiv").show();
-			$("#rememberUserName").val("0");
-		}else{
-			$("#falseDiv").show();	
-			$("#trueDiv").hide();
-			$("#rememberUserName").val("1");
-		}
-	}
-</script> -->
+	<!-- 注册弹窗start -->
+	<div class="theme-popover aa">
+     <div class="theme-poptit aa">
+          <a href="javascript:;" title="关闭" class="close">×</a>
+          <h3>注册</h3>
+     </div>
+     <div class="theme-popbod dform">
+     <form class="theme-signin" id="registerForm" action="<%=request.getContextPath()%>/cmsuser/register.do" method='post'>
+                <ol>
+					<li><h4>请先注册</h4></li>
+					<li><strong>手机号码：</strong><input type="text" name="cellphone" id="cellphone" value="${errorUsername }" placeholder="请输入登录用户名" /></li>
+					<li><strong>设置登录密码：</strong><input type="password" name="password" placeholder="请输入登录密码" id="password" /></li>
+					<li><strong>再次输入密码：</strong><input type="text" name="regpassword" placeholder="请输入验证码" id="regpassword" maxlength="4" /></li>
+                    <li><strong>验证码：</strong><input type="text" name="smscode" placeholder="请输入验证码" id="smscode" maxlength="4" />
+                    <span><a class="verification_code_b_a" href="javascript:void(0);" onclick="onGetRegisterSMSCode(this)">获取验证码</a>
+					</span></li>
+					<li><input class="btn btn-primary" type="submit" name="submit" onclick="onNextRegister()"
+						value=" 注册 " /></li>
+				</ol>
+	</form>
+     </div>
+	</div>
+	<!-- 注册弹窗end -->
 <!-- Slider -->
 	<script src="${path}/resources/js/jquery-2.1.1.js"></script>
 	<script src="${path}/resourcesjs/demo.js"></script>
@@ -804,8 +712,17 @@ application.setAttribute("basePath",basePath);
 	<!-- Carousel -->
 	<script src="${path}/resources/js/owl.carousel.js"></script>
     <script>
+    var wait = 180;
     $(document).ready(function() {
     	$('.theme-login').click(function(){
+    		$('.theme-popover-mask').fadeIn(100);
+    		$('.theme-popover').slideDown(200);
+    	})
+    	$('.theme-poptit .close').click(function(){
+    		$('.theme-popover-mask').fadeOut(100);
+    		$('.theme-popover').slideUp(200);
+    	})
+    	$('.theme-register').click(function(){
     		$('.theme-popover-mask').fadeIn(100);
     		$('.theme-popover').slideDown(200);
     	})
@@ -829,13 +746,13 @@ application.setAttribute("basePath",basePath);
         navigation : true
       });
     });
-    
+    //获取图片验证码
     function changeImg(){    
 	    var imgSrc = $("#imgObj");    
 	    var src = imgSrc.attr("src");    
 	    imgSrc.attr("src",chgUrl(src));    
 	}
-    
+    //改变图片验证码
     function chgUrl(url){
 	    var timestamp = (new Date()).valueOf();    
 //	     url = url.substring(0,17);
@@ -846,7 +763,7 @@ application.setAttribute("basePath",basePath);
 	    }
 	    return url;
 	}
-    
+    //登录
     function ajaxLogin_post(){
 		var userName = $("#username").val();
 		var password = $("#password").val();
@@ -883,6 +800,68 @@ application.setAttribute("basePath",basePath);
 		}
 		$("#loginForm").submit();
 	}
+    //注册
+    function onNextRegister() {
+    	if(validateInput()) {
+    		$.ajax({
+    			url:path+'/user/register.do',
+    			type:'POST',
+    			data:{
+    				loginName : $.trim($("#cellphone").val()),
+    				password : $("#password").val(),
+    				verifyCode : $.trim($("#smscode").val())
+    			},
+    			dataType:'json',
+    			success:function(data) {
+    				if(data.msgCode == '1') {
+    					window.location.href = path + "/store/toStoreBaseView.do";
+    				}else{
+    					$("#tips").html(data.msg);
+    				}
+    			}
+    		});
+    	}
+    }
+    //获取短信验证码
+    function onGetRegisterSMSCode(event) {
+    	if(wait < 180) return false;
+    	
+    	var cellphone = $.trim($("#cellphone").val());
+    	if(!cellphone) {
+    		$('#cellphone').focus();
+    		$("#cellphone").parent().next().show();
+    		return false;
+    	}else{
+    		var regNum = /^\d{11}$/;
+    		//正则手机号码
+    		if(cellphone.length != 11 || !regNum.test(cellphone)) {
+    			$('#cellphone').focus();
+    			$("#cellphone").parent().next().show();
+    			return false;
+    		}else{
+    			$("#cellphone").parent().next().hide();
+    		}
+    	}
+    	var url_="${path}/message/page/getRegisterSMSCode.do?random="+new Date().getTime();
+    	alert(url_);
+    	//手机是否已存在,验证码是否正确
+    	$.ajax({
+    		url:url_,
+    		type : "POST",
+			async : false,
+    		data:{
+    			cellphone:cellphone,
+	        },
+    		dataType:'json',
+    		success:function(data) {
+    			alert('');
+    		},
+    		error : function(e) {
+				console.log(e);
+    		}
+    	});
+    }
+
     </script>
 </body>
 </html>
