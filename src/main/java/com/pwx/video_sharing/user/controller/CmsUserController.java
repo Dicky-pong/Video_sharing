@@ -15,6 +15,7 @@ import org.apache.http.message.BasicHeader;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSONObject;
@@ -25,6 +26,7 @@ import com.pwx.video_sharing.common.util.MD5Util;
 import com.pwx.video_sharing.common.util.MsgJson;
 import com.pwx.video_sharing.common.util.tools.JsonUtil;
 import com.pwx.video_sharing.dictionary.DicSingle;
+import com.pwx.video_sharing.message.util.CodeValidateUtil;
 import com.pwx.video_sharing.user.entity.Cms_Users;
 import com.pwx.video_sharing.user.service.ICmsUserService;
 
@@ -40,7 +42,7 @@ import com.pwx.video_sharing.user.service.ICmsUserService;
  */
 
 @Controller
-@RequestMapping("/cmsuser")
+@RequestMapping("/cmsuser/")
 public class CmsUserController {
 
     private static Logger logger = Logger.getLogger(CmsUserController.class);
@@ -55,7 +57,7 @@ public class CmsUserController {
     
     private RedisUtil redis = RedisUtil.getInstance();
 
-    @RequestMapping("/addCmsUsers")
+    @RequestMapping("addCmsUsers")
     @ResponseBody
     public String addCmsUsers(HttpServletRequest request, HttpServletResponse response,Cms_Users cmsUsers){
         MsgJson msg = new MsgJson();
@@ -82,7 +84,7 @@ public class CmsUserController {
         return JsonUtil.toJSONString(msg);
     }
     
-    @RequestMapping("/editCmsUsers")
+    @RequestMapping("editCmsUsers")
     @ResponseBody
     public String editCmsUsers(HttpServletRequest request, HttpServletResponse response,Cms_Users cmsUsers){
         MsgJson msg = new MsgJson();
@@ -100,7 +102,7 @@ public class CmsUserController {
         return JsonUtil.toJSONString(msg);
     }
     
-    @RequestMapping("/delCmsUsers")
+    @RequestMapping("delCmsUsers")
     @ResponseBody
     public String delCmsUsers(HttpServletRequest request, HttpServletResponse response,Cms_Users cmsUsers){
         MsgJson msg = new MsgJson();
@@ -116,7 +118,7 @@ public class CmsUserController {
         return JsonUtil.toJSONString(msg);
     }
     
-    @RequestMapping("/queryCmsUserList")
+    @RequestMapping("queryCmsUserList")
     @ResponseBody
     public String findUserInfo(HttpServletRequest request,HttpServletResponse response,Cms_Users cmsUsers){
        
@@ -127,7 +129,7 @@ public class CmsUserController {
         return JSONObject.toJSONString(page);
     }
     
-    @RequestMapping("/queryCmsUserPageSize")
+    @RequestMapping("queryCmsUserPageSize")
     @ResponseBody
     public String usersPageSize(HttpServletRequest request, HttpServletResponse response,Cms_Users cmsUsers){
         
@@ -135,6 +137,42 @@ public class CmsUserController {
         
         return CountNum.toString();
     }
+    
+    /**
+	 * 
+	 * 注册
+	 * @param users
+	 * @return
+	 */
+    @RequestMapping("page/register")
+	@ResponseBody
+	public String register(HttpServletRequest request, Cms_Users users) {
+		MsgJson msg = new MsgJson();
+		try {
+			if(CodeValidateUtil.validateSMSCode(users.getLoginName(), users.getVerifyCode())) {
+				String password = users.getPassword();
+				String storeId = cmsUserService.register(users);
+				
+				CodeValidateUtil.delSMSCode(users.getLoginName());
+				
+				msg.setMsgCode("1");
+				Cms_Users store = new Cms_Users();
+				store.setId(storeId);
+				store.setLoginName(users.getLoginName());
+				store.setPassword(password);
+				request.getSession().setAttribute("REGISTER_STORE_SESSION", store);
+			}else{
+				msg.setMsgCode("0");
+				msg.setMsg("短信验证码不正确或已过期");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			msg.setMsgCode("0");
+			msg.setMsg(e.getMessage());
+		}
+		//验证验证码
+		return JsonUtil.toJSONString(msg);
+	}
     public static void main(String[] args) throws Exception {
         System.out.println(MD5Util.md5Encode("admin0506"));
     }

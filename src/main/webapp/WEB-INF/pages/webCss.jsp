@@ -8,6 +8,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 application.setAttribute("basePath",basePath);
 %>
 <script>
+var path = '${path}';
 var webRoot = '${path}';
 var basePath = '${basePath}';
 </script>

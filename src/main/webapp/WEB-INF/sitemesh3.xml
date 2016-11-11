@@ -8,7 +8,6 @@
 
 	<!-- 指明满足“/exclude.jsp*”的页面，将被排除，不被装饰 -->
 	<!-- 页面不渲染示范 path=/*/*.do  or  /*.jsp  -->
-	 <mapping path="/page/*.do" exclue="true" /> 
-	
+	 <mapping path="/*/page/*.do" exclue="true" /> 
 	
 </sitemesh>  

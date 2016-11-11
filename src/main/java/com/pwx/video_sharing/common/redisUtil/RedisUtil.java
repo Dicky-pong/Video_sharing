@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+
 import redis.clients.jedis.BinaryClient.LIST_POSITION;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
@@ -34,9 +35,10 @@ public class RedisUtil {
   public static synchronized RedisUtil getInstance() {  
        if (redisUtil == null) {
 //           redisUtil = new RedisUtil("120.24.241.164", 6379);
-           redisUtil = new RedisUtil("120.25.249.190", 6379);  
+    	  // redisUtil = new RedisUtil("120.25.249.190", 6379);  
 //           redisUtil = new RedisUtil("192.168.1.11", 6379);
 //           redisUtil = new RedisUtil("202.104.149.29", 6379);
+           redisUtil = new RedisUtil("127.0.0.1", 6379);  
        }    
       return redisUtil;  
   } 

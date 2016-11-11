@@ -18,6 +18,14 @@ import com.pwx.video_sharing.user.entity.Cms_Users;
  * @since 1.
  */
 public interface CmsUserDao {
+	
+	/**
+	 * 
+	 * 验证手机号码是否存在
+	 * @param loginName
+	 * @return
+	 */
+	public Integer validateLoginNameIsExist(String loginName);
 	/**
 	 * 
 	 * TODO 查询操作员信息

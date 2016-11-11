@@ -277,4 +277,12 @@ public class CmsUserDaoImpl extends BaseDao implements CmsUserDao {
         
         return pageCount;
     }
+
+    @Override
+	public Integer validateLoginNameIsExist(String loginName) {
+		String sql = "SELECT COUNT(u.id) FROM Cms_Users u WHERE u.loginName = :loginName";
+        Map<String, String> map = new HashMap<String, String>();
+        map.put("loginName", loginName);
+        return Integer.parseInt(super.getUnique(sql, map).toString());
+	}
 }

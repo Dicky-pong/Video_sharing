@@ -459,6 +459,14 @@
 			<artifactId>aspectjweaver</artifactId>
 			<version>${aspectj.version}</version>
 		</dependency>
+		
+		 <!-- qiniucloud-->
+        <dependency>
+            <groupId>com.qiniu</groupId>
+            <artifactId>qiniu-java-sdk</artifactId>
+            <version>[7.0.0, 7.0.99]</version>
+        </dependency>
+        <!-- activiti-->
 
 		<!-- 开源的分析、编辑和创建Java字节码的类库 -->
 		<dependency>

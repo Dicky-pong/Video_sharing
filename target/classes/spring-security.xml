@@ -25,6 +25,8 @@
 	<security:http pattern="/login/noticeContent.jsp*" security="none"/>
 	<security:http pattern="/login/findPassword.jsp" security="none"/>
 	<security:http pattern="/user/toFindPwd.do" security="none" />
+	<security:http pattern="/message/page/*.do" security="none" />
+	<security:http pattern="/cmsuser/page/*.do" security="none" />
 
 
 <!-- 	<security:http pattern="/*/*.do" security="none" /> -->

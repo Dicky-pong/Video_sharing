@@ -1,6 +1,7 @@
 package com.pwx.video_sharing.user.service.impl;
 
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -11,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.pwx.video_sharing.common.pagination.Page;
 import com.pwx.video_sharing.common.redisUtil.RedisUtil;
+import com.pwx.video_sharing.common.util.MD5Util;
 import com.pwx.video_sharing.common.util.MsgJson;
 import com.pwx.video_sharing.common.util.SessionUtil;
 import com.pwx.video_sharing.dictionary.DicSingle;
@@ -147,5 +149,28 @@ public class CmsUserServiceImpl implements ICmsUserService {
         
         return cmsUserDao.queryCmsUserPageSize(user);
     }
+
+    @Override
+	@Transactional
+	public String register(Cms_Users users) throws Exception {
+		//验证是否已经注册
+		if(cmsUserDao.validateLoginNameIsExist(users.getLoginName()) > 0) {
+			throw new Exception("该账号已注册");
+		}
+		users = packageUsers(users);
+		//保存用户信息
+		String userId = cmsUserDao.addUser(users);
+		//创建权限信息 权限值为3，普通会员
+		cmsUserDao.addUserRole(userId, 3);
+		return userId;
+	}
+    
+	private Cms_Users packageUsers(Cms_Users user) throws Exception {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		user.setPassword(MD5Util.md5Encode(user.getPassword()));
+        user.setState("1");
+        user.setCreateDate(sdf.format(new Date()));
+		return user;
+	}
     
 }

@@ -16,7 +16,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 application.setAttribute("basePath",basePath);
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -689,25 +688,27 @@ application.setAttribute("basePath",basePath);
           <h3>注册</h3>
      </div>
      <div class="theme-popbod dform">
-     <form class="theme-signin" id="registerForm" action="<%=request.getContextPath()%>/cmsuser/register.do" method='post'>
                 <ol>
 					<li><h4>请先注册</h4></li>
-					<li><strong>手机号码：</strong><input type="text" name="cellphone" id="cellphone" value="${errorUsername }" placeholder="请输入登录用户名" /></li>
-					<li><strong>设置登录密码：</strong><input type="password" name="password" placeholder="请输入登录密码" id="password" /></li>
-					<li><strong>再次输入密码：</strong><input type="text" name="regpassword" placeholder="请输入验证码" id="regpassword" maxlength="4" /></li>
-                    <li><strong>验证码：</strong><input type="text" name="smscode" placeholder="请输入验证码" id="smscode" maxlength="4" />
+					<li><strong>手机号码：</strong>
+					<input type="text" class="" maxlength="11" id="cellphone" placeholder="请输入11位手机号码"/></li>
+					<li><strong>设置登录密码：</strong>
+					<input type="password" class="" maxlength="18" id="password" placeholder="请输入登录密码"/></li>
+					<li><strong>再次输入密码：</strong>
+					<input type="password" class="" maxlength="18" id="regpassword" placeholder="再次输入密码"/></li>
+                    <li><strong>验证码：</strong>
+                   	<input type="text" class="" maxlength="6" id="smscode" placeholder="请输入验证码"/>
                     <span><a class="verification_code_b_a" href="javascript:void(0);" onclick="onGetRegisterSMSCode(this)">获取验证码</a>
 					</span></li>
 					<li><input class="btn btn-primary" type="submit" name="submit" onclick="onNextRegister()"
 						value=" 注册 " /></li>
 				</ol>
-	</form>
      </div>
 	</div>
 	<!-- 注册弹窗end -->
 <!-- Slider -->
 	<script src="${path}/resources/js/jquery-2.1.1.js"></script>
-	<script src="${path}/resourcesjs/demo.js"></script>
+	<script src="${path}/resources/js/demo.js"></script>
 	<script src="${path}/resources/js/classie.js"></script>
 	<!-- Carousel -->
 	<script src="${path}/resources/js/owl.carousel.js"></script>
@@ -800,28 +801,8 @@ application.setAttribute("basePath",basePath);
 		}
 		$("#loginForm").submit();
 	}
-    //注册
-    function onNextRegister() {
-    	if(validateInput()) {
-    		$.ajax({
-    			url:path+'/user/register.do',
-    			type:'POST',
-    			data:{
-    				loginName : $.trim($("#cellphone").val()),
-    				password : $("#password").val(),
-    				verifyCode : $.trim($("#smscode").val())
-    			},
-    			dataType:'json',
-    			success:function(data) {
-    				if(data.msgCode == '1') {
-    					window.location.href = path + "/store/toStoreBaseView.do";
-    				}else{
-    					$("#tips").html(data.msg);
-    				}
-    			}
-    		});
-    	}
-    }
+   
+
     //获取短信验证码
     function onGetRegisterSMSCode(event) {
     	if(wait < 180) return false;
@@ -839,11 +820,11 @@ application.setAttribute("basePath",basePath);
     			$("#cellphone").parent().next().show();
     			return false;
     		}else{
-    			$("#cellphone").parent().next().hide();
+    			//$("#cellphone").parent().next().hide();
     		}
     	}
-    	var url_="${path}/message/page/getRegisterSMSCode.do?random="+new Date().getTime();
-    	alert(url_);
+    	
+    	var url_=path+"/message/page/getRegisterSMSCode.do";
     	//手机是否已存在,验证码是否正确
     	$.ajax({
     		url:url_,
@@ -854,13 +835,109 @@ application.setAttribute("basePath",basePath);
 	        },
     		dataType:'json',
     		success:function(data) {
-    			alert('');
+    			console.log(data);
     		},
     		error : function(e) {
-				console.log(e);
+				
     		}
     	});
     }
+    
+    function validateInput() {
+    	var cellphone = $.trim($("#cellphone").val());
+    	if(!cellphone) {
+    		$('#cellphone').focus();
+    		$("#cellphone").parent().next().show();
+    		return false;
+    	}else{
+    		var regNum = /^\d{11}$/;
+    		//正则手机号码
+    		if(cellphone.length != 11 || !regNum.test(cellphone)) {
+    			$('#cellphone').focus();
+    			$("#cellphone").parent().next().show();
+    			return false;
+    		}else{
+    			alert('1');
+    		};
+    	}
+    	
+    	var password = $("#password").val();
+    	if(!password) {
+    		$('#password').focus();
+    		$("#password").parent().next().show();
+    		return false;
+    	}else{
+    		var textRegular = /^(?![0-9]+$)(?![A-z]+$)[A-z]\w{5,17}$/;
+    		if(textRegular.test(password)) {
+    			$("#password").parent().next().hide();
+    		}else{
+    			$('#password').focus();
+				alert('2');
+    			return false;
+    		};
+    	}
+    	
+    	var regPassword = $("#regpassword").val();
+    	if(!regPassword) {
+    		$('#regpassword').focus();
+    		$("#regpassword").parent().next().show();
+    		return false;
+    	}else{
+    		if(regPassword == password) {
+    			alert('3');
+    			//$("#regpassword").parent().next().hide();
+    		}else{
+    			$("#regpassword").parent().next().show();
+    			return false;
+    		};
+    	}
+    	
+    	var smscode = $.trim($("#smscode").val());
+    	if(!smscode) {
+    		$('#smscode').focus();
+    		$("#smscode").parent().next().show();
+    		return false;
+    	}else{
+    		var reg = /^[\d]{6}$/;
+    		if(!reg.test(smscode))	{
+    			$('#smscode').focus();
+    			$('#smscode').parent().next().show();
+    			return false;
+    		}else{
+    			alert("4");
+    			//$('#smscode').parent().next().hide();
+    		};
+    	}
+    	
+    	return true;
+    }
+    //注册
+    function onNextRegister() {
+    //	if(validateInput()) {
+    //		alert('YEAH');
+    		$.ajax({
+    			url:path+'/cmsuser/page/register.do',
+    			type:'POST',
+    			data:{
+    				loginName : $.trim($("#cellphone").val()),
+    				password : $("#password").val(),
+    				verifyCode : $.trim($("#smscode").val())
+    			},
+    			dataType:'json',
+    			success:function(data) {
+    				alert("");
+    				/* if(data.msgCode == '1') {
+    					window.location.href = path + "/store/toStoreBaseView.do";
+    				}else{
+    					$("#tips").html(data.msg);
+    				} */
+    			},
+    			error:function(e){
+    				console.log(e);
+    			}
+    		});
+    	}
+//   }
 
     </script>
 </body>

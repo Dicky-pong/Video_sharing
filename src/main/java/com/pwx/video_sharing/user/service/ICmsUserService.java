@@ -138,4 +138,12 @@ public interface ICmsUserService {
      */
     public Integer queryCmsUserPageSize(Cms_Users user);
     
+    /**
+	 * 
+	 * 注册信息
+	 * @param users
+	 * @return
+	 */
+	public String register(Cms_Users users) throws Exception;
+    
 }

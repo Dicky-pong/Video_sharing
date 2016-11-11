@@ -14,6 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -34,8 +35,6 @@ import org.hibernate.annotations.GenericGenerator;
 @Table(name="CMS_USERS")
 public class Cms_Users implements Serializable {
 	
-    
-    
     /**
      * 
      */
@@ -47,10 +46,17 @@ public class Cms_Users implements Serializable {
     @GenericGenerator(name = "system-uuid", strategy = "uuid")
     private String id;
     
-    //用户名
+    //用户手机号码
     @Column(name="loginName")
     private String loginName;
     
+    //用户名
+    @Column(name="nickName")
+    private String nickName;
+
+    //头像URL
+    @Column(name="headImg")
+    private String headImg;
     //密码
     @Column(name="password")
     private String password;
@@ -70,80 +76,116 @@ public class Cms_Users implements Serializable {
     @Column(name="createDate")
     private String createDate;
     
-    public String getCreateDate() {
-        return createDate;
-    }
+    /**
+	 * 临时验证码
+	 */
+	@Transient
+	private String verifyCode;
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getLoginName() {
+		return loginName;
+	}
+
+	public void setLoginName(String loginName) {
+		this.loginName = loginName;
+	}
+
+	public String getNickName() {
+		return nickName;
+	}
+
+	public void setNickName(String nickName) {
+		this.nickName = nickName;
+	}
+
+	public String getHeadImg() {
+		return headImg;
+	}
+
+	public void setHeadImg(String headImg) {
+		this.headImg = headImg;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public List<Cms_Roles> getCms_roles() {
+		return cms_roles;
+	}
+
+	public void setCms_roles(List<Cms_Roles> cms_roles) {
+		this.cms_roles = cms_roles;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	public String getCreateDate() {
+		return createDate;
+	}
+
+	public void setCreateDate(String createDate) {
+		this.createDate = createDate;
+	}
+
+	public String getVerifyCode() {
+		return verifyCode;
+	}
+
+	public void setVerifyCode(String verifyCode) {
+		this.verifyCode = verifyCode;
+	}
+
+	@Override
+	public String toString() {
+		return "Cms_Users [id=" + id + ", loginName=" + loginName
+				+ ", nickName=" + nickName + ", headImg=" + headImg
+				+ ", password=" + password + ", cms_roles=" + cms_roles
+				+ ", state=" + state + ", createDate=" + createDate
+				+ ", verifyCode=" + verifyCode + "]";
+	}
+
+	public Cms_Users(String id, String loginName, String nickName,
+			String headImg, String password, List<Cms_Roles> cms_roles,
+			String state, String createDate, String verifyCode) {
+		super();
+		this.id = id;
+		this.loginName = loginName;
+		this.nickName = nickName;
+		this.headImg = headImg;
+		this.password = password;
+		this.cms_roles = cms_roles;
+		this.state = state;
+		this.createDate = createDate;
+		this.verifyCode = verifyCode;
+	}
+
+	public Cms_Users() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
     
-    public void setCreateDate(String createDate) {
-        this.createDate = createDate;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    
-    public String getLoginName() {
-        return loginName;
-    }
-
-    
-    public void setLoginName(String loginName) {
-        this.loginName = loginName;
-    }
-
-    
-    public String getPassword() {
-        return password;
-    }
-
-    
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    
-    public List<Cms_Roles> getCms_roles() {
-        return cms_roles;
-    }
-
-    
-    public void setCms_roles(List<Cms_Roles> cms_roles) {
-        this.cms_roles = cms_roles;
-    }
-
-    public String getState() {
-        return state;
-    }
-    
-    public void setState(String state) {
-        this.state = state;
-    }
-    
-    public Cms_Users(){
-        super();
-    }
 
 
-    public Cms_Users(String id, String loginName, String password, List<Cms_Roles> cms_roles, String state){
-        super();
-        this.id = id;
-        this.loginName = loginName;
-        this.password = password;
-        this.cms_roles = cms_roles;
-        this.state = state;
-    }
 
-
-    @Override
-    public String toString() {
-        return "Cms_Users [id=" + id + ", loginName=" + loginName + ", password=" + password + ", cms_roles="
-               + cms_roles + ", state=" + state + "]";
-    }
 
 }
