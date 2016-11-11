@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50515
 File Encoding         : 65001
 
-Date: 2016-10-25 17:59:57
+Date: 2016-11-11 17:36:59
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -41,7 +41,9 @@ CREATE TABLE `cms_users` (
   `id` varchar(32) NOT NULL,
   `loginName` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
-  `state` varchar(2) DEFAULT NULL,
+  `headImg` varchar(255) DEFAULT NULL,
+  `nickName` varchar(255) DEFAULT NULL,
+  `state` varchar(32) DEFAULT NULL,
   `createDate` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -49,12 +51,13 @@ CREATE TABLE `cms_users` (
 -- ----------------------------
 -- Records of cms_users
 -- ----------------------------
-INSERT INTO `cms_users` VALUES ('4028818b5495c09f015495c2d7d90003', 'admin', '5690dddfa28ae085d23518a035707282', '0', '2016-05-09 21:44:15');
-INSERT INTO `cms_users` VALUES ('4028818b54992df30154992e58dc0001', 'laoxie', 'a8e4fb602f5ebc50787ffd866792eb16', '0', '2016-05-10 13:40:32');
-INSERT INTO `cms_users` VALUES ('4028818b54992df30154993592fa0003', 'tanchao', 'e10adc3949ba59abbe56e057f20f883e', '0', '2016-05-10 13:48:25');
-INSERT INTO `cms_users` VALUES ('4028818b549e4f9201549e526bac0003', 'admmm', '733d7be2196ff70efaf6913fc8bdcabf', '0', '2016-05-11 13:38:02');
-INSERT INTO `cms_users` VALUES ('4028818b549e80e601549e81ab4e0001', 'admmn', '4297f44b13955235245b2497399d7a93', '0', '2016-05-11 14:29:38');
-INSERT INTO `cms_users` VALUES ('4028818b549eef7801549ef69faf0001', '12333', '4297f44b13955235245b2497399d7a93', '0', '2016-05-11 16:37:23');
+INSERT INTO `cms_users` VALUES ('4028818b5495c09f015495c2d7d90003', 'admin', '5690dddfa28ae085d23518a035707282', null, null, '1', '2016-05-09 21:44:15');
+INSERT INTO `cms_users` VALUES ('4028818b54992df30154992e58dc0001', 'laoxie', 'a8e4fb602f5ebc50787ffd866792eb16', null, null, '1', '2016-05-10 13:40:32');
+INSERT INTO `cms_users` VALUES ('4028818b54992df30154993592fa0003', 'tanchao', 'e10adc3949ba59abbe56e057f20f883e', null, null, '1', '2016-05-10 13:48:25');
+INSERT INTO `cms_users` VALUES ('4028818b549e4f9201549e526bac0003', 'admmm', '733d7be2196ff70efaf6913fc8bdcabf', null, null, '1', '2016-05-11 13:38:02');
+INSERT INTO `cms_users` VALUES ('4028818b549e80e601549e81ab4e0001', 'admmn', '4297f44b13955235245b2497399d7a93', null, null, '1', '2016-05-11 14:29:38');
+INSERT INTO `cms_users` VALUES ('4028818b549eef7801549ef69faf0001', '12333', '4297f44b13955235245b2497399d7a93', null, null, '1', '2016-05-11 16:37:23');
+INSERT INTO `cms_users` VALUES ('402881f55847da5f015847e7eba50001', '13798474869', 'd41d8cd98f00b204e9800998ecf8427e', null, null, '1', '2016-11-09 15:05:31');
 
 -- ----------------------------
 -- Table structure for `cms_user_role`
@@ -84,6 +87,31 @@ INSERT INTO `cms_user_role` VALUES ('4028818b54992df30154993593160004', '1', '40
 INSERT INTO `cms_user_role` VALUES ('4028818b549e4f9201549e526bcb0004', '1', '4028818b549e4f9201549e526bac0003');
 INSERT INTO `cms_user_role` VALUES ('4028818b549e80e601549e81ab7c0002', '1', '4028818b549e80e601549e81ab4e0001');
 INSERT INTO `cms_user_role` VALUES ('4028818b549eef7801549ef69fed0002', '1', '4028818b549eef7801549ef69faf0001');
+INSERT INTO `cms_user_role` VALUES ('402881f55847da5f015847e7ec120002', null, '402881f55847da5f015847e7eba50001');
+
+-- ----------------------------
+-- Table structure for `file`
+-- ----------------------------
+DROP TABLE IF EXISTS `file`;
+CREATE TABLE `file` (
+  `id` varchar(50) NOT NULL DEFAULT '',
+  `userId` varchar(50) DEFAULT NULL,
+  `fileName` varchar(255) DEFAULT NULL,
+  `fileUrl` varchar(255) DEFAULT NULL,
+  `fileType` varchar(255) DEFAULT NULL,
+  `fileSize` varchar(255) DEFAULT NULL,
+  `fileDescript` varchar(255) DEFAULT NULL,
+  `fileState` varchar(255) DEFAULT NULL,
+  `shareState` varchar(255) DEFAULT NULL,
+  `instanceId` varchar(255) DEFAULT NULL,
+  `bussinessKey` varchar(255) DEFAULT NULL,
+  `createDate` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of file
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for `msgchannel`
