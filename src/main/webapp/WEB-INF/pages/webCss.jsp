@@ -24,6 +24,9 @@ var basePath = '${basePath}';
 <link href="//cdn.bootcss.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 <link href="//cdn.bootcss.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
 
+<!-- 弹窗插件layer -->
+<script type="text/javascript" src="${path}/resources/js/layer/layer.js"></script>
+
 <%-- <link rel="stylesheet" type="text/css" href="${path}/resources/css/public_reset.css" />
 <link rel="stylesheet" type="text/css" href="${path}/resources/css/system-release.css" />
 <link rel="stylesheet" type="text/css" href="${path}/resources/css/public_pop_layer.css" />

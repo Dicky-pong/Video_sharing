@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -37,35 +38,223 @@ public class File {
     @GenericGenerator(name = "system-uuid", strategy = "uuid")
     private String id;
 	
-	//用户手机号码
-    @Column(name="loginName")
-    private String loginName;
+	//用户ID
+    @Column(name="userId")
+    private String userId;
     
-    //用户名
-    @Column(name="nickName")
-    private String nickName;
+    //文件名
+    @Column(name="fileName")
+    private String fileName;
 
-    //头像URL
-    @Column(name="headImg")
-    private String headImg;
-    //密码
-    @Column(name="password")
-    private String password;
+    //文件的链接
+    @Column(name="fileUrl")
+    private String fileUrl;
     
-    //权限级别  (cascade={CascadeType.ALL},fetch=FetchType.EAGER)
-    @ManyToMany(fetch=FetchType.EAGER)
-    @JoinTable(name="cms_user_role" , joinColumns = {  
-            @JoinColumn(name = "cms_userId")  
-    }, inverseJoinColumns = {@JoinColumn(name="cms_roleId")})   
-    private List<Cms_Roles> cms_roles = new ArrayList<Cms_Roles>();
-
-    //操作员状态
-    @Column(name="state")
-    private String state;
+    //文件类型
+    @Column(name="fileType")
+    private String fileType;
+    
+    //文件描述
+    @Column(name="fileDescript")
+    private String fileDescript;
+    
+    //文件大小
+    @Column(name="fileSize")
+    private String fileSize;
+    
+    //文件状态   0:文件正在审核  1:文件已被分享	2:文件被打回
+    @Column(name="fileState")
+    private String fileState;
+    
+    //分享状态	是否分享		0：分享	 	1：不分享
+    @Column(name="shareState")
+    private String shareState;
+    
+    @Column(name="instanceId")
+    private String instanceId;
+    
+    @Column(name="bussinessKey")
+    private String bussinessKey;
+    
+    //观看次数
+    @Column(name="watchCount")
+    private String watchCount;
+   
+    //下载次数
+    @Column(name="downLoadCount")
+    private String downLoadCount;
+    
+    //视频帧缩略图的URL
+    @Transient
+    private String vframeUrl;
     
     //创建时间
     @Column(name="createDate")
     private String createDate;
+    
+
+	public String getVframeUrl() {
+		return vframeUrl;
+	}
+
+	public void setVframeUrl(String vframeUrl) {
+		this.vframeUrl = vframeUrl;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+
+	public String getFileName() {
+		return fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+
+	public String getFileUrl() {
+		return fileUrl;
+	}
+
+	public void setFileUrl(String fileUrl) {
+		this.fileUrl = fileUrl;
+	}
+
+	public String getFileType() {
+		return fileType;
+	}
+
+	public void setFileType(String fileType) {
+		this.fileType = fileType;
+	}
+
+	public String getFileDescript() {
+		return fileDescript;
+	}
+
+	public void setFileDescript(String fileDescript) {
+		this.fileDescript = fileDescript;
+	}
+
+	public String getFileSize() {
+		return fileSize;
+	}
+
+	public void setFileSize(String fileSize) {
+		this.fileSize = fileSize;
+	}
+
+	public String getFileState() {
+		return fileState;
+	}
+
+	public void setFileState(String fileState) {
+		this.fileState = fileState;
+	}
+
+	public String getShareState() {
+		return shareState;
+	}
+
+	public void setShareState(String shareState) {
+		this.shareState = shareState;
+	}
+
+	public String getInstanceId() {
+		return instanceId;
+	}
+
+	public void setInstanceId(String instanceId) {
+		this.instanceId = instanceId;
+	}
+
+	public String getBussinessKey() {
+		return bussinessKey;
+	}
+
+	public void setBussinessKey(String bussinessKey) {
+		this.bussinessKey = bussinessKey;
+	}
+
+	public String getWatchCount() {
+		return watchCount;
+	}
+
+	public void setWatchCount(String watchCount) {
+		this.watchCount = watchCount;
+	}
+
+	public String getDownLoadCount() {
+		return downLoadCount;
+	}
+
+	public void setDownLoadCount(String downLoadCount) {
+		this.downLoadCount = downLoadCount;
+	}
+
+	public String getCreateDate() {
+		return createDate;
+	}
+
+	public void setCreateDate(String createDate) {
+		this.createDate = createDate;
+	}
+
+	@Override
+	public String toString() {
+		return "File [id=" + id + ", userId=" + userId + ", fileName="
+				+ fileName + ", fileUrl=" + fileUrl + ", fileType=" + fileType
+				+ ", fileDescript=" + fileDescript + ", fileSize=" + fileSize
+				+ ", fileState=" + fileState + ", shareState=" + shareState
+				+ ", instanceId=" + instanceId + ", bussinessKey="
+				+ bussinessKey + ", watchCount=" + watchCount
+				+ ", downLoadCount=" + downLoadCount + ", vframeUrl="
+				+ vframeUrl + ", createDate=" + createDate + "]";
+	}
+
+	public File(String id, String userId, String fileName, String fileUrl,
+			String fileType, String fileDescript, String fileSize,
+			String fileState, String shareState, String instanceId,
+			String bussinessKey, String watchCount, String downLoadCount,
+			String vframeUrl, String createDate) {
+		super();
+		this.id = id;
+		this.userId = userId;
+		this.fileName = fileName;
+		this.fileUrl = fileUrl;
+		this.fileType = fileType;
+		this.fileDescript = fileDescript;
+		this.fileSize = fileSize;
+		this.fileState = fileState;
+		this.shareState = shareState;
+		this.instanceId = instanceId;
+		this.bussinessKey = bussinessKey;
+		this.watchCount = watchCount;
+		this.downLoadCount = downLoadCount;
+		this.vframeUrl = vframeUrl;
+		this.createDate = createDate;
+	}
+
+	public File() {
+		super();
+	}
+
+
+    
+    
 	
 	
 }

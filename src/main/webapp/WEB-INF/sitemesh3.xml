@@ -3,11 +3,14 @@
 
 
     <!-- 指明满足“/*”的页面，将被“/WEB-INF/pages/decorator.jsp”所装饰 -->
-    <mapping path="/*" decorator="/WEB-INF/pages/decorator.jsp" />
-
+   <!--  <mapping path="/*" decorator="/WEB-INF/pages/decorator.jsp" />
+ -->
 
 	<!-- 指明满足“/exclude.jsp*”的页面，将被排除，不被装饰 -->
 	<!-- 页面不渲染示范 path=/*/*.do  or  /*.jsp  -->
-	 <mapping path="/*/page/*.do" exclue="true" /> 
+	<!--  <mapping path="/*/page/*.do" exclue="true" /> 
+	 <mapping path="/file/layer/*.do" exclue="true" />  -->
+	 <mapping path="/login/**" decorator="/WEB-INF/pages/decorator.jsp"/>
+
 	
 </sitemesh>  

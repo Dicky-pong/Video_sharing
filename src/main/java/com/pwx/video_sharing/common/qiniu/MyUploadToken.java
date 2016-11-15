@@ -1,10 +1,10 @@
 package com.pwx.video_sharing.common.qiniu;
 
-import java.util.Iterator;
-import java.util.List;
-
+import com.pwx.video_sharing.file.entity.File;
 import com.qiniu.util.StringMap;
 
+import java.util.Iterator;
+import java.util.List;
 
 /**
  * Created by Huy on 2016-01-07.
@@ -37,12 +37,12 @@ public class MyUploadToken {
     }
 
     //用于查询时视频帧地址的批量获取
-    public static List<CloudFile> getVframes(List<CloudFile> cloudFiles){
+    public static List<File> getVframes(List<File> cloudFiles){
         ConfigToken ct = new ConfigToken();
         if(cloudFiles != null && !cloudFiles.isEmpty()){
-            Iterator<CloudFile> it = cloudFiles.iterator();
+            Iterator<File> it = cloudFiles.iterator();
             while (it.hasNext()){
-                CloudFile cf = it.next();
+            	File cf = it.next();
                 String vUrl = ct.getVfUrl(cf.getFileUrl());
                 cf.setVframeUrl(vUrl);
             }

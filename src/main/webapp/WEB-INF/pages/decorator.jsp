@@ -14,7 +14,7 @@
 <link href="${path}/resources/css/login.css" rel="stylesheet"/>
 
 <!--引入头部页面 -->
-<%@include file="webCss.jsp"%>
+<%@include file="/webCss.jsp"%>
 <!-- 头部 -->
 <sitemesh:write property='head' ></sitemesh:write>
 </head>
@@ -27,7 +27,7 @@
 				<div class="row">
 					<a href="index.html" class="logo"><img src="${path }/resources/images/logo.png" /></a>
 					<ul class="quick-link">
-						<li><a href="#" title="Upload Video"><i class="fa fa-upload"></i></a></li>
+						<li><a href="#" onclick="openAddFile()" title="Upload Video"><i class="fa fa-upload"></i></a></li>
 						<li><a class="theme-login"  title="Log in"><i class="fa fa-user"></i></a></li>
 						<li><a class="theme-register" href="#" title="Warning"><i class="fa fa-bell"></i></a></li>
 					</ul>
@@ -169,9 +169,9 @@
 		</div>
 	</footer>
 
-<!-- <script type="text/javascript">
+<script type="text/javascript">
 
-$(document).ready(function(){
+/* $(document).ready(function(){
 	
 	//退出按钮
 	$("#logout").on("click",function(){
@@ -187,9 +187,25 @@ function mySwitch(id){
 function myHide(id){
     $("#"+id).hide();
     $('.Cover_layer').hide();
+} */
+//弹出新增视频的iframe层窗口
+function openAddFile(){
+    layer.open({
+        type: 2,
+        title: ['新增文件','font-family: Helvetica, arial, sans-serif;font-size: 14px;font-weight: bold;'],
+        shade: 0.5,
+        area: ['600px', '342px'],
+        content: [path+'/file/gotoUpload.do','no'],
+        btn:['提交','取消'],
+        yes:function(index, layero){
+            /*var body = layer.getChildFrame('body',index);
+             var iframeWin = window[layero.find('iframe')[0]['name']];
+             body.find("#start_upload").click();*/
+        },
+        move:false
+    });
 }
-
-</script> -->
+</script> 
 </div>
 </body>
 </html>

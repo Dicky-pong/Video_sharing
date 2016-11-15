@@ -9,9 +9,9 @@ import com.qiniu.util.StringMap;
  */
 public class ConfigToken {
     //您的七牛云AccessKey
-    private static final String ACCESS_KEY = "BJWnHcjnG5CTmqM7pb4ah0F6Yz1PrBFN-CKUkmlq";
+    private static final String ACCESS_KEY = "mk9pZfVJYzqi3jD5Vt4OBDeazLCHCPx8N2nAGngx";
     //您的七牛云SecretKey
-    private static final String SECRET_KEY = "yq8CV89NOa534EHydvrh_zUdkYOAF5tGS8f2Xm7d";
+    private static final String SECRET_KEY = "yq7x09bkGN6Z3LjzCbuHKAn4WS8EAgtq2kKNVURh";
     //您在七牛云创建的空间名称(bucket)
     public static final String BUCKETNAME = "testbucket";
     //七牛云下载域名

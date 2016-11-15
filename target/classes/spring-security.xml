@@ -27,6 +27,7 @@
 	<security:http pattern="/user/toFindPwd.do" security="none" />
 	<security:http pattern="/message/page/*.do" security="none" />
 	<security:http pattern="/cmsuser/page/*.do" security="none" />
+	<security:http pattern="/file/**" security="none" />
 
 
 <!-- 	<security:http pattern="/*/*.do" security="none" /> -->
