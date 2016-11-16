@@ -282,7 +282,28 @@ function QiniuJsSDK() {
         };
         reset_chunk_size();
 
-        var getUpToken = function() {
+        var getUpToken = function(){
+        	if (!op.uptoken) {
+        		$.ajax({
+                    type:"GET",
+                    url:that.uptoken_url,
+                    cache:false,
+                    success:function(data,status){
+                    	 that.token = data.uptoken;
+                    },
+                    error:function(xhr,status,ex){
+                        alert(status+":保存失败");
+                    }
+                });
+        	}else {
+                that.token = op.uptoken;
+            }
+        };
+        	
+        	
+        	
+        	
+        	/*function() {
             if (!op.uptoken) {
                 var ajax = that.createAjax();
                 ajax.open('GET', that.uptoken_url, true);
@@ -294,10 +315,8 @@ function QiniuJsSDK() {
                     }
                 };
                 ajax.send();
-            } else {
-                that.token = op.uptoken;
-            }
-        };
+            } 
+        };*/
 
         var getFileKey = function(up, file, func) {
             var key = '',

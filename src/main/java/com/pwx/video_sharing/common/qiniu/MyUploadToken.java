@@ -49,4 +49,9 @@ public class MyUploadToken {
         }
         return cloudFiles;
     }
+    
+    public static void main(String args[]){    
+        String aa = new MyUploadToken().getMyUpToken();  
+        System.out.print(aa);
+       }  
 }

@@ -70,12 +70,6 @@ public class File {
     @Column(name="shareState")
     private String shareState;
     
-    @Column(name="instanceId")
-    private String instanceId;
-    
-    @Column(name="bussinessKey")
-    private String bussinessKey;
-    
     //观看次数
     @Column(name="watchCount")
     private String watchCount;
@@ -91,15 +85,6 @@ public class File {
     //创建时间
     @Column(name="createDate")
     private String createDate;
-    
-
-	public String getVframeUrl() {
-		return vframeUrl;
-	}
-
-	public void setVframeUrl(String vframeUrl) {
-		this.vframeUrl = vframeUrl;
-	}
 
 	public String getId() {
 		return id;
@@ -173,22 +158,6 @@ public class File {
 		this.shareState = shareState;
 	}
 
-	public String getInstanceId() {
-		return instanceId;
-	}
-
-	public void setInstanceId(String instanceId) {
-		this.instanceId = instanceId;
-	}
-
-	public String getBussinessKey() {
-		return bussinessKey;
-	}
-
-	public void setBussinessKey(String bussinessKey) {
-		this.bussinessKey = bussinessKey;
-	}
-
 	public String getWatchCount() {
 		return watchCount;
 	}
@@ -205,6 +174,14 @@ public class File {
 		this.downLoadCount = downLoadCount;
 	}
 
+	public String getVframeUrl() {
+		return vframeUrl;
+	}
+
+	public void setVframeUrl(String vframeUrl) {
+		this.vframeUrl = vframeUrl;
+	}
+
 	public String getCreateDate() {
 		return createDate;
 	}
@@ -219,40 +196,14 @@ public class File {
 				+ fileName + ", fileUrl=" + fileUrl + ", fileType=" + fileType
 				+ ", fileDescript=" + fileDescript + ", fileSize=" + fileSize
 				+ ", fileState=" + fileState + ", shareState=" + shareState
-				+ ", instanceId=" + instanceId + ", bussinessKey="
-				+ bussinessKey + ", watchCount=" + watchCount
-				+ ", downLoadCount=" + downLoadCount + ", vframeUrl="
-				+ vframeUrl + ", createDate=" + createDate + "]";
-	}
-
-	public File(String id, String userId, String fileName, String fileUrl,
-			String fileType, String fileDescript, String fileSize,
-			String fileState, String shareState, String instanceId,
-			String bussinessKey, String watchCount, String downLoadCount,
-			String vframeUrl, String createDate) {
-		super();
-		this.id = id;
-		this.userId = userId;
-		this.fileName = fileName;
-		this.fileUrl = fileUrl;
-		this.fileType = fileType;
-		this.fileDescript = fileDescript;
-		this.fileSize = fileSize;
-		this.fileState = fileState;
-		this.shareState = shareState;
-		this.instanceId = instanceId;
-		this.bussinessKey = bussinessKey;
-		this.watchCount = watchCount;
-		this.downLoadCount = downLoadCount;
-		this.vframeUrl = vframeUrl;
-		this.createDate = createDate;
+				+ ", watchCount=" + watchCount + ", downLoadCount="
+				+ downLoadCount + ", vframeUrl=" + vframeUrl + ", createDate="
+				+ createDate + "]";
 	}
 
 	public File() {
 		super();
 	}
-
-
     
     
 	

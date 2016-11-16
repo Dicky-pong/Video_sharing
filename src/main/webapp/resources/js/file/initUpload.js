@@ -18,17 +18,18 @@ $(function() {
         }
 
     });
+
     //初始化上传参数
     var uploader = Qiniu.uploader({
         runtimes: 'html5,html4',    //上传模式,依次退化
         browse_button: 'pickfiles',       //上传选择的点选按钮，**必需**
-        //uptoken_url: path+'/file/getTokenJs.do',   //Ajax请求upToken的Url，**强烈建议设置**（服务端提供）
-        uptoken : 'BJWnHcjnG5CTmqM7pb4ah0F6Yz1PrBFN-CKUkmlq:aU6nSj0J85sQ_1d5kbMtUrsdBJI=:eyJzY29wZSI6InRlc3RidWNrZXQiLCJkZWFkbGluZSI6MTQ3OTI4ODI2MH0=',
+        uptoken_url: path+'/file/getTokenJs.do',   //Ajax请求upToken的Url，**强烈建议设置**（服务端提供）
+        // uptoken : '<Your upload token>',
         //若未指定uptoken_url,则必须指定 uptoken ,uptoken由其他程序生成
         unique_names: true, // 默认 false，key为文件名。若开启该选项，SDK会为每个文件自动生成key（文件名）
         // save_key: true,
         // 默认 false。若在服务端生成uptoken的上传策略中指定了 `sava_key`，则开启，SDK在前端将不对key进行任何处理
-        domain: 'http://7xpdvw.com1.z0.glb.clouddn.com/',   //bucket 域名，下载资源时用到，**必需**
+        domain: 'http://ognvmo9iy.bkt.clouddn.com/',   //bucket 域名，下载资源时用到，**必需**
         container: 'container',           //上传区域DOM ID，默认是browser_button的父元素，
         max_file_size: '100mb',           //最大文件体积限制
         //flash_swf_url: 'js/plupload/Moxie.swf',  //引入flash,相对路径
@@ -125,22 +126,23 @@ $(function() {
                 var params = $("#fileForm").serializeArray();
                 params.push({name:"fileUrl",value:keyName});
                 //异步保存上传文件信息
-             /*   $.ajax({
+                $.ajax({
                     type:"POST",
-                    url:"/filec/addFile.htm",
+                    url:path+"/file/addFile.do",
                     data:params,
                     cache:false,
                     //contentType:false,    //使用formData时，contentType不交给jquery处理，由xhr处理
                     //processData:false,    //使用formData时，processData不交给jquery处理,由xhr处理
                     success:function(data,status){
-                        parent.layer.msg(status+data.message,{shade:0.1,time:2000},function(){
+                    	layer.msg(data.msg, {icon: 1});
+                       /* parent.layer.msg(status+data.message,{shade:0.1,time:2000},function(){
                             parent.window.location = "/task/listMyFile.htm";
-                        });
+                        });*/
                     },
                     error:function(xhr,status,ex){
                         alert(status+":保存失败");
                     }
-                });*/
+                });
 
             },
             'Error': function (up, err, errTip) {
