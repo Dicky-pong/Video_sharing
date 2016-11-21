@@ -9,13 +9,13 @@ import com.qiniu.util.StringMap;
  */
 public class ConfigToken {
     //您的七牛云AccessKey
-    private static final String ACCESS_KEY = "BJWnHcjnG5CTmqM7pb4ah0F6Yz1PrBFN-CKUkmlq";
+    private static final String ACCESS_KEY = "mk9pZfVJYzqi3jD5Vt4OBDeazLCHCPx8N2nAGngx";
     //您的七牛云SecretKey
-    private static final String SECRET_KEY = "yq8CV89NOa534EHydvrh_zUdkYOAF5tGS8f2Xm7d";
+    private static final String SECRET_KEY = "yq7x09bkGN6Z3LjzCbuHKAn4WS8EAgtq2kKNVURh";
     //您在七牛云创建的空间名称(bucket)
     public static final String BUCKETNAME = "testbucket";
     //七牛云下载域名
-    private static final String DOWNLOAD_URL="http://7xpdvw.com1.z0.glb.clouddn.com/";
+    private static final String DOWNLOAD_URL="http://ogrkxrsz0.bkt.clouddn.com/";
 
 
     //初步生成上传下载策略
@@ -75,7 +75,7 @@ public class ConfigToken {
      * @return
      */
     public String getVfUrl(String key){
-        return auth.privateDownloadUrl(DOWNLOAD_URL+key+"?vframe/png/offset/10/w/256/h/256");
+        return auth.privateDownloadUrl(DOWNLOAD_URL+key+"?vframe/png/offset/1/w/256/h/256");
     }
 
     /**

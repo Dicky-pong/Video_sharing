@@ -26,6 +26,8 @@ var basePath = '${basePath}';
 <link rel="stylesheet" href="${path}/resources/css/zerogrid.css"/>
 <link rel="stylesheet" href="${path}/resources/css/style.css"/>
 <link rel="stylesheet" href="${path}/resources/css/menu.css"/>
+<link rel="stylesheet" href="${path}/resources/css/bootstrap.css" rel="stylesheet"/>
+
 <!-- Owl Carousel Assets -->
 <link href="${path}/resources/css/owl.carousel.css" rel="stylesheet"/>
 <link href="${path}/resources/css/owl.theme.css" rel="stylesheet"/>
@@ -36,6 +38,9 @@ var basePath = '${basePath}';
 <script type="text/javascript" src="${path}/resources/js/jqueryUtil/jquery.js"></script>
 <script type="text/javascript" src="${path}/resources/js/jqueryUtil/function.js"></script>
 <script type="text/javascript" src="${path}/resources/js/jqueryUtil/jquery.md5.js"></script>
+<script type="text/javascript" src="${path}/resources/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="${path}/resources/js/common.js"></script>
+
 <!-- 弹窗插件layer -->
 <script type="text/javascript" src="${path}/resources/js/layer/layer.js"></script>
 

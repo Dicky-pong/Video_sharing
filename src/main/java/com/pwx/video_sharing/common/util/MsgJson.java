@@ -10,6 +10,8 @@ public class MsgJson {
     //操作码
     private String msgCode;
     
+    private String downloadUrl;
+    
     //泛型  返回列表操作数据list
     private List<?> data;
     
@@ -17,7 +19,17 @@ public class MsgJson {
     private Object object;
 
     
-    public String getMsg() {
+    public String getDownloadUrl() {
+		return downloadUrl;
+	}
+
+
+	public void setDownloadUrl(String downloadUrl) {
+		this.downloadUrl = downloadUrl;
+	}
+
+
+	public String getMsg() {
         return msg;
     }
 

@@ -19,7 +19,7 @@
     <security:http pattern="/*.xml" security="none"/>
     
 	<!-- 对登录/注册！所有的用户都可以访问 -->
-	<security:http pattern="/help/help.html" security="none"/>
+	<!-- <security:http pattern="/help/help.html" security="none"/>
 	<security:http pattern="/login/login.jsp*" security="none"/>
 	<security:http pattern="/login/noticeList.jsp*" security="none"/>
 	<security:http pattern="/login/noticeContent.jsp*" security="none"/>
@@ -27,7 +27,8 @@
 	<security:http pattern="/user/toFindPwd.do" security="none" />
 	<security:http pattern="/message/page/*.do" security="none" />
 	<security:http pattern="/cmsuser/page/*.do" security="none" />
-	<security:http pattern="/file/**" security="none" />
+	<security:http pattern="/file/**" security="none" /> -->
+	<security:http pattern="/**/**" security="none" />
 
 
 <!-- 	<security:http pattern="/*/*.do" security="none" /> -->

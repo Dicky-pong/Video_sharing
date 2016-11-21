@@ -29,7 +29,7 @@ $(function() {
         unique_names: true, // 默认 false，key为文件名。若开启该选项，SDK会为每个文件自动生成key（文件名）
         // save_key: true,
         // 默认 false。若在服务端生成uptoken的上传策略中指定了 `sava_key`，则开启，SDK在前端将不对key进行任何处理
-        domain: 'http://ognvmo9iy.bkt.clouddn.com/',   //bucket 域名，下载资源时用到，**必需**
+        domain: 'http://ogrkxrsz0.bkt.clouddn.com/',   //bucket 域名，下载资源时用到，**必需**
         container: 'container',           //上传区域DOM ID，默认是browser_button的父元素，
         max_file_size: '100mb',           //最大文件体积限制
         //flash_swf_url: 'js/plupload/Moxie.swf',  //引入flash,相对路径
@@ -129,18 +129,20 @@ $(function() {
                 $.ajax({
                     type:"POST",
                     url:path+"/file/addFile.do",
+                    dataType:"json",
                     data:params,
-                    cache:false,
                     //contentType:false,    //使用formData时，contentType不交给jquery处理，由xhr处理
                     //processData:false,    //使用formData时，processData不交给jquery处理,由xhr处理
                     success:function(data,status){
-                    	layer.msg(data.msg, {icon: 1});
+                    	parent.layer.msg(status+data.msg,{shade:0.1,time:2000});
+                        parent.window.location = path+"/file/listMyFile.do";
+
                        /* parent.layer.msg(status+data.message,{shade:0.1,time:2000},function(){
                             parent.window.location = "/task/listMyFile.htm";
                         });*/
                     },
                     error:function(xhr,status,ex){
-                        alert(status+":保存失败");
+                    	parent.layer.msg("保存失败！",{shade:0.1,time:2000});
                     }
                 });
 

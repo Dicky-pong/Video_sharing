@@ -11,6 +11,7 @@
 	<!--  <mapping path="/*/page/*.do" exclue="true" /> 
 	 <mapping path="/file/layer/*.do" exclue="true" />  -->
 	 <mapping path="/login/**" decorator="/WEB-INF/pages/decorator.jsp"/>
+	 <mapping path="/file/listMyFile.do" decorator="/WEB-INF/pages/decorator.jsp"/>
 
 	
 </sitemesh>  
