@@ -7,205 +7,82 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-
-<title>跆拳道&nbsp;视频分享平台&nbsp;-&nbsp;
-	<sitemesh:write property='title'></sitemesh:write>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>资源分享平台<sitemesh:write property='title' />
 </title>
-<link href="${path}/resources/css/login.css" rel="stylesheet"/>
 
 <!--引入头部页面 -->
 <%@include file="/webCss.jsp"%>
 <!-- 头部 -->
-<sitemesh:write property='head' ></sitemesh:write>
-</head>
+<sitemesh:write property='head' />
 
-<body id="wrapper">
-<div class="wrap-body">
-	<header>
-		<div class="wrap-header">
-			<div class="zerogrid">
-				<div class="row">
-					<a href="index.html" class="logo"><img src="${path }/resources/images/logo.png" /></a>
-					<ul class="quick-link">
-						<li><a href="#" onclick="openAddFile()" title="Upload Video"><i class="fa fa-upload"></i></a></li>
-						<li><a class="theme-login"  title="Log in"><i class="fa fa-user"></i></a></li>
-						<li><a class="theme-register" href="#" title="Warning"><i class="fa fa-bell"></i></a></li>
+	<script src="${path}/resources/js/responsiveslides.js"></script>
+	<script>
+		$(function () {
+		  $("#slider").responsiveSlides({
+			auto: true,
+			pager: false,
+			nav: true,
+			speed: 500,
+			maxwidth: 960,
+			namespace: "centered-btns"
+		  });
+		});
+	</script>
+	
+</head>
+<body id="page1">
+<div class="body1">
+	<div class="body1">
+		<div class="main zerogrid">
+<!-- header -->
+			<header>
+				<div class="wrapper row">
+				<h1><a href="index.html" id="logo"><img src="${path }/resources/images/logo.png" /></a></h1>
+				<nav>
+					<ul id="menu">
+						<li id="nav1" class="active"><a href="index.html">Home<span>Welcome!</span></a></li>
+						<li id="nav2"><a href="News.html">News<span>Fresh</span></a></li>
+						<li id="nav3"><a href="Services.html">Services<span>for you</span></a></li>
+						<li id="nav4"><a href="Products.html">Products<span>The best</span></a></li>
+						<li id="nav5"><a href="Contacts.html">Contacts<span>Our Address</span></a></li>
 					</ul>
-					<ul class="social">
-						<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-						<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-						<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-						<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-						<li><a href="#"><i class="fa fa-instagram"></i></a></li>
-					</ul>
+				</nav>
 				</div>
-			</div>
+
+				<div class="wrapper row">
+					<%-- <div class="slider">
+					  	<div class="rslides_container">
+							<ul class="rslides" id="slider">
+								<li><img src="${path}/resources/images/img1.jpg" alt=""></li>
+								<li><img src="${path}/resources/images/img2.jpg" alt=""></li>
+								<li><img src="${path}/resources/images/img3.jpg" alt=""></li>
+								<li><img src="${path}/resources/images/img4.jpg" alt=""></li>
+							</ul>
+						</div>
+					</div> --%>
+				</div>
+			</header>
+<!-- header end-->
 		</div>
-		<!-- <div class="bottom">
-			<div class="zerogrid">
-				<div class="row">
-					<span>Welcome to Us - Contact Us at <a href="contact.html">HERE</a></span>
-				</div>
-			</div>
-		</div> -->
-    </header>
-	<!-- 头部end -->
-	<!--菜单start-->
-	<a href="#" class="nav-toggle">Toggle Navigation</a>
-    <nav class="cmn-tile-nav">
-		<ul class="clearfix">
-			<li class="colour-1"><a href="gallery.html">跆拳道</a></li>
-			<li class="colour-2"><a href="gallery.html">散打</a></li>
-			<li class="colour-3"><a href="gallery.html">空手道</a></li>
-			<li class="colour-4"><a href="gallery.html">泰拳</a></li>
-			<li class="colour-5"><a href="gallery.html">柔道</a></li>
-			<li class="colour-6"><a href="gallery.html">截拳道</a></li>
-			<li class="colour-7"><a href="gallery.html">中国套路</a></li>
-			<li class="colour-8"><a href="gallery.html">更多</a></li>
-		</ul>
-    </nav>
-	<!-- 菜单end -->
+	</div>
+</div>
+
 	<div>
 		<div id="content" class="span-24 last">
 			<sitemesh:write property='body' />
 		</div>
 	</div>
-	
-	<footer>
-		<div class="zerogrid top-footer">
-			<div class="row">
-				<div class="col-1-5">
-					<a href="#"><img src="${path }/resources/images/15.jpg" /></a>
-				</div>
-				<div class="col-1-5">
-					<a href="#"><img src="${path }/resources/images/16.jpg" /></a>
-				</div>
-				<div class="col-1-5">
-					<a href="#"><img src="${path }/resources/images/17.jpg" /></a>
-				</div>
-				<div class="col-1-5">
-					<a href="#"><img src="${path }/resources/images/18.jpg" /></a>
-				</div>
-				<div class="col-1-5">
-					<a href="#"><img src="${path }/resources/images/19.jpg" /></a>
-				</div>
-			</div>
-		</div>
-		<div class="zerogrid wrap-footer">
-			<div class="row">
-				<div class="col-1-4 col-footer-1">
-					<div class="wrap-col">
-						<a href="index.html" class="logo"><img src="${path}/resources/images/logo.png" /></a>
-						<p>Ut volutpat consectetur aliquam. Curabitur auctor in nis ulum ornare. Sed consequat, augue condimentum fermentum gravida, metus elit vehicula dui.</p>
-					</div>
-				</div>
-				<div class="col-1-4 col-footer-2">
-					<div class="wrap-col">
-						<h3>Categories</h3>
-						<ul>
-							<li><a href="#">Action</a></li>
-							<li><a href="#">Romantic</a></li>
-							<li><a href="#">Cartoon</a></li>
-							<li><a href="#">Zombies</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-1-4 col-footer-3">
-					<div class="wrap-col">
-						<h3>Recent Posts</h3>
-						<ul>
-							<li><a href="#">New Videos</a></li>
-							<li><a href="#">Featured Videos</a></li>
-							<li><a href="#">Most Viewed Videos</a></li>
-							<li><a href="#">Sports Videos</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-1-4 col-footer-4">
-					<div class="wrap-col">
-						<h3>Flickr Photos</h3>
-						<div class="row">
-							<div class="col-1-4">
-								<div class="wrap-col">
-									<a href="#"><img src="${path }/resources/images/6.jpg" /></a>
-									<a href="#"><img src="${path }/resources/images/10.jpg" /></a>
-									<a href="#"><img src="${path }/resources/images/13.jpg" /></a>
-								</div>
-							</div>
-							<div class="col-1-4">
-								<div class="wrap-col">
-									<a href="#"><img src="${path }/resources/images/7.jpg" /></a>
-									<a href="#"><img src="${path }/resources/images/11.jpg" /></a>
-									<a href="#"><img src="${path }/resources/images/6.jpg" /></a>
-								</div>
-							</div>
-							<div class="col-1-4">
-								<div class="wrap-col">
-									<a href="#"><img src="${path }/resources/images/8.jpg" /></a>
-									<a href="#"><img src="${path }/resources/images/12.jpg" /></a>
-									<a href="#"><img src="${path }/resources/images/10.jpg" /></a>
-								</div>
-							</div>
-							<div class="col-1-4">
-								<div class="wrap-col">
-									<a href="#"><img src="${path }/resources/images/9.jpg" /></a>
-									<a href="#"><img src="${path }/resources/images/13.jpg" /></a>
-									<a href="#"><img src="${path }/resources/images/8.jpg" /></a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="zerogrid copyright">
-			<div class="wrapper">
-				Copyright 2015 - More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a>
-				<ul class="quick-link f-right">
-					<li><a href="#">Privacy Policy</a></li>
-					<li><a href="#">Terms of Use</a></li>
-				</ul>
-			</div>
-		</div>
-	</footer>
 
-<script type="text/javascript">
-
-/* $(document).ready(function(){
-	
-	//退出按钮
-	$("#logout").on("click",function(){
-    		window.location.href = basePath+"logout.do";
-   	});
-	
-});
-function mySwitch(id){
-    $("#"+id).show();
-    $('.Cover_layer').show();
-    
-}
-function myHide(id){
-    $("#"+id).hide();
-    $('.Cover_layer').hide();
-} */
-//弹出新增视频的iframe层窗口
-function openAddFile(){
-    layer.open({
-        type: 2,
-        title: ['新增文件','font-family: Helvetica, arial, sans-serif;font-size: 14px;font-weight: bold;'],
-        shade: 0.5,
-        area: ['600px', '342px'],
-        content: [path+'/file/gotoUpload.do','no'],
-        btn:['提交','取消'],
-        yes:function(index, layero){
-            /*var body = layer.getChildFrame('body',index);
-             var iframeWin = window[layero.find('iframe')[0]['name']];
-             body.find("#start_upload").click();*/
-        },
-        move:false
-    });
-}
-</script> 
-</div>
+		<div class="main zerogrid">
+<!-- footer -->
+			<footer>
+				<a href="http://www.zerotheme.com/432/free-responsive-html5-css3-website-templates.html" target="_blank">Html5 Templates</a> by <a href="http://www.templatemonster.com/" target="_blank">Templatesmonster.com</a><br>
+				<a href="http://www.zerotheme.com/432/free-responsive-html5-css3-website-templates.html" target="_blank">Responsive Themes</a> by <a href="http://www.zerotheme.com/" target="_blank">Zerotheme.com</a><br>
+			</footer>
+<!-- footer end -->
+		</div>
+<script type="text/javascript"> Cufon.now(); </script>
+		
 </body>
 </html>

@@ -15,25 +15,25 @@ var basePath = '${basePath}';
 </script>
 
 
-<%-- <!-- Css引用 -->
-<link rel="stylesheet" type="text/css" href="${path}/resources/css/index.css" />
-<link rel="stylesheet" type="text/css" href="${path}/resources/css/reset.css" />
-<link rel="stylesheet" type="text/css" href="${path}/resources/css/login.css" />
-<link rel="stylesheet" type="text/css" href="${path}/resources/css/system_login.css" />
-<!-- Js引用 --><link rel="stylesheet" type="text/css" href="${path}/resources/js/plugins/validform/css/form_valid.css" /> --%>
-
-<!-- 系统框架Css引用1.3 -->
+<!-- Css引用 -->
+<link rel="stylesheet" href="${path}/resources/css/reset.css" type="text/css" media="all"/>
+<link rel="stylesheet" href="${path}/resources/css/layout.css" type="text/css" media="all"/>
+<link rel="stylesheet" href="${path}/resources/css/style.css" type="text/css" media="all"/>
 <link rel="stylesheet" href="${path}/resources/css/zerogrid.css"/>
-<link rel="stylesheet" href="${path}/resources/css/style.css"/>
-<link rel="stylesheet" href="${path}/resources/css/menu.css"/>
-<link rel="stylesheet" href="${path}/resources/css/bootstrap.css" rel="stylesheet"/>
+<link rel="stylesheet" href="${path}/resources/css/responsive.css"/>
+<link rel="stylesheet" href="${path}/resources/css/responsiveslides.css" />
 
-<!-- Owl Carousel Assets -->
-<link href="${path}/resources/css/owl.carousel.css" rel="stylesheet"/>
-<link href="${path}/resources/css/owl.theme.css" rel="stylesheet"/>
-<!-- Custom Fonts -->
-<link href="//cdn.bootcss.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"/>
-<link href="//cdn.bootcss.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet"/>
+<script type="text/javascript" src="${path}/resources/js/jquery-1.6.js" ></script>
+<script type="text/javascript" src="${path}/resources/js/cufon-yui.js"></script>
+<script type="text/javascript" src="${path}/resources/js/cufon-replace.js"></script>
+<script type="text/javascript" src="${path}/resources/js/Swis721_Cn_BT_400.font.js"></script>
+<script type="text/javascript" src="${path}/resources/js/Swis721_Cn_BT_700.font.js"></script>
+<script type="text/javascript" src="${path}/resources/js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="${path}/resources/js/tms-0.3.js"></script>
+<script type="text/javascript" src="${path}/resources/js/tms_presets.js"></script>
+<script type="text/javascript" src="${path}/resources/js/jcarousellite.js"></script>
+<script type="text/javascript" src="${path}/resources/js/script.js"></script>
+<script src="${path}/resources/js/css3-mediaqueries.js"></script>
 
 <script type="text/javascript" src="${path}/resources/js/jqueryUtil/jquery.js"></script>
 <script type="text/javascript" src="${path}/resources/js/jqueryUtil/function.js"></script>
@@ -43,13 +43,6 @@ var basePath = '${basePath}';
 
 <!-- 弹窗插件layer -->
 <script type="text/javascript" src="${path}/resources/js/layer/layer.js"></script>
-
-
-<%-- <script type="text/javascript" src="${path}/resources/js/util/login/modernizr.js"></script>
-<script type="text/javascript" src="${path}/resources/js/util/login/login.js"></script>
-<script type="text/javascript" src="${path}/resources/js/util/common.js"></script>
-<script type="text/javascript" src="${path}/resources/js/plugins/validform/Validform_v5.3.2_min.js"></script>
-<script type="text/javascript" src="${path}/resources/js/plugins/validform/plugin/passwordStrength/passwordStrength-min.js"></script> --%>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
