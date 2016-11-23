@@ -27,12 +27,14 @@ application.setAttribute("basePath",basePath);
         <div class="loginpanel">
 			<i id="loading" class="hidden fa fa-spinner fa-spin bigicon"></i>
             <h3>欢迎登录</h3>
+             <form name='loginForm' id="loginForm" action="<%=request.getContextPath()%>/login.do" method='post'>
+            
             <div>
-                <span class="fa fa-user userspan redborder"></span><input id="username" type="text" placeholder="登录账号" onkeypress="check_values();" class="field">
-                <span class="fa fa-lock  userspan redborder"></span><input id="password" type="password" placeholder="输入密码" onkeypress="check_values();" class="field">
+                <span class="fa fa-user userspan redborder"></span><input id="username" type="text" placeholder="登录账号" onkeypress="check_values();" class="field" required="required" >
+                <span class="fa fa-lock  userspan redborder"></span><input id="password" type="password" placeholder="输入密码" onkeypress="check_values();" class="field" required="required" >
 
 			<div class="about_pswd clearfix">
-							<input id="checkbox" type="checkbox"  class="check_box"/>
+							<input id="checkbox" type="checkbox"  class="check_box" />
 							<label onclick="clickRememberMe();" class="remeber" >记住帐号</label> 
 							<input id="rememberUserName" name="rememberUserName" type="hidden" value="1" /> 
 							<span class="forgot_pswd"><a href="${path }/login/NewFile.html" target="_blank">忘记密码？</a></span>
@@ -41,7 +43,7 @@ application.setAttribute("basePath",basePath);
 						
 			 <div class="check_code clearfix">
                         
-                            <input type="text" name="veryCode" placeholder="请输入验证码" id="veryCode" maxlength="4" />
+                            <input type="text" name="veryCode" placeholder="请输入验证码" id="veryCode" maxlength="4" required="required" onkeypress="check_values();"/>
                             
                             <img id="imgObj" alt="" src="${path}/verifyCode.jpeg" onclick="changeImg()"/>
                                                   
@@ -54,6 +56,11 @@ application.setAttribute("basePath",basePath);
 					</button>
 					<span id="lockbtn" class="fa fa-lock lockbutton redborder"></span>
 				</div>
+				
+				  <div class="register">
+                        		 <label></>没有账号？</label><a href="javascript:void(0);" onclick="openPage('2');" >立即注册</a>
+                 </div> 
+                  </form>      
             </div>
         </div>
     </div>
@@ -68,7 +75,7 @@ application.setAttribute("basePath",basePath);
 
 
     function check_values() {
-        if ($("#username").val().length != 0 && $("#password").val().length != 0) {
+        if ($("#username").val().length != 0 && $("#password").val().length != 0 && $("#veryCode").val().length!=0) {
             $("#loginbtn").animate({ left: '0' , duration: 'slow'});;
             $("#lockbtn").animate({ left: '260px' , duration: 'slow'});;
         }
