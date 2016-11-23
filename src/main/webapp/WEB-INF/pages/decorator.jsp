@@ -5,14 +5,16 @@
 	uri="http://www.springframework.org/security/tags"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <title>资源分享平台<sitemesh:write property='title' />
 </title>
-
 <!--引入头部页面 -->
 <%@include file="/webCss.jsp"%>
+<link rel="stylesheet" href="${path}/resources/css/reset.css" type="text/css" media="all"/>
+
 <!-- 头部 -->
 <sitemesh:write property='head' />
 

@@ -30,8 +30,8 @@
 		padding: 20px;
 	}
 
-	input {
-		width: 100%;
+	.field {
+		width: 80%;
 		margin-bottom: 17px;
 		padding: 15px;
 		background-color: #ECF4F4;
@@ -39,7 +39,7 @@
 		border: none;
 	}
 
-	h2 {
+	h4 {
 		margin-bottom: 20px;
 		font-weight: normal;
 		color: #EFEFEF;
@@ -70,6 +70,31 @@
 		top:0;
 		left:0;
 	}
+	.userspan {
+		width: 20%;
+		font-size: 27px;
+		color: #f96145;
+		padding: 10px;
+		top:0;
+		left:0;
+	}
+	.check_box{
+		position:absolute;
+		left:10px;
+		top:0;
+	}
+	.remeber{
+		position:absolute;
+		left:25px;
+		bottom:5x;
+	}
+	.about_pswd{
+		position:relative;
+		margin-bottom: 10px;
+	}
+	
+	.forgot_pswd{color:#F00;display:inline-block;float:right;}
+	
 
 	.loginbutton {
 		background-color: #f08000;
@@ -84,3 +109,12 @@
 		position:absolute;
 		top:0;
 	}
+	
+.check_code{height:40px; position:relative;margin-top:10px;margin-bottom:30px;}
+.check_code input{ outline:none;width: 80%;
+		margin-bottom: 17px;
+		padding: 15px;
+		background-color: #ECF4F4;
+		border-radius: 2px;
+		border: none; }
+.check_code img{position:absolute; left:146px; top:0;width:95px;height:36px;}

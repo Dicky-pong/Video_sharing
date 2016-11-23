@@ -16,7 +16,6 @@ var basePath = '${basePath}';
 
 
 <!-- Css引用 -->
-<link rel="stylesheet" href="${path}/resources/css/reset.css" type="text/css" media="all"/>
 <link rel="stylesheet" href="${path}/resources/css/layout.css" type="text/css" media="all"/>
 <link rel="stylesheet" href="${path}/resources/css/style.css" type="text/css" media="all"/>
 <link rel="stylesheet" href="${path}/resources/css/zerogrid.css"/>
